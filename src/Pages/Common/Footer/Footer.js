@@ -3,9 +3,9 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <div>
-            
-        </div>
+        <footer className='footer'>
+            Car Shifter &copy; 2022 All Right Reserved
+        </footer>
     );
 };
 
