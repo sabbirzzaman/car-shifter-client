@@ -5,9 +5,7 @@ import PartItem from '../PartItem/PartItem';
 import './Parts.css';
 
 const Parts = () => {
-
     const {data: products, isLoading} = useQuery('products',() => axios.get('products.json'));
-
     
     if(isLoading) {
         return ''

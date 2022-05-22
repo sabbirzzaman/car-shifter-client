@@ -26,6 +26,16 @@
     text-align: center;
 }
 
+.product-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-info div > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
 .purchase {
     position: absolute;
     width: 100%;

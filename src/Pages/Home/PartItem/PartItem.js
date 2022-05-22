@@ -11,16 +11,24 @@ const PartItem = ({ product }) => {
             <div className="purchase">
                 <button className="purchase-btn">
                     <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
-                    Purchase now</button>
+                    Purchase now
+                </button>
             </div>
             <div className="product">
-                <h5 className='stock'>{inStock} - In Stock</h5>
+                <h5 className="stock">{inStock} - In Stock</h5>
                 <div className="product-img">
                     <img src={image} alt={name} />
                 </div>
-                <h4>{name}</h4>
-                <h5>${price}.00</h5>
-                <p className='details'>{description}</p>
+                <div className="product-info">
+                    <div>
+                        <h4>{name}</h4>
+                        <h5>${price}.00 / pice</h5>
+                    </div>
+                    <div>
+                        <h5>{orderQuantity} items pack</h5>
+                    </div>
+                </div>
+                <p className="details">{description}</p>
             </div>
         </div>
     );
