@@ -1,0 +1,103 @@
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+a {
+    color: #000;
+    transition: .3s ease-in-out;
+}
+
+a:hover {
+    color: #e74c3c;
+}
+
+h1 {
+    font-size: 68px;
+}
+
+h2 {
+    font-size: 45px;
+    line-height: 48px;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 38px;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.btn {
+    background-color: #e74c3c;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    line-height: 14px;
+    padding-top: 13px;
+    transition: .3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+}
+
+/* Medium devices (landscape tablets, 689px and up) */
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+
+    h1 {
+        font-size: 68px;
+    }
+    
+    h2 {
+        font-size: 45px;
+        line-height: 48px;
+    }
+    
+    h3 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    
+    h4 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .container {
+        max-width: 325px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 68px;
+    }
+    
+    h2 {
+        font-size: 45px;
+        line-height: 48px;
+    }
+    
+    h3 {
+        font-size: 22px;
+        line-height: 28px;
+    }
+    
+    h4 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
