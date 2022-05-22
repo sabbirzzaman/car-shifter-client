@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Header.css';
 
@@ -14,6 +14,25 @@ const Header = () => {
     // get user
     const [user, loading] = useAuthState(auth);
 
+
+    // active route
+    function CustomLink({ children, to, ...props }) {
+        let resolved = useResolvedPath(to);
+        let match = useMatch({ path: resolved.pathname, end: true });
+      
+        return (
+          <div>
+            <Link
+              style={{ color: match ? "#e74c3c" : "" }}
+              to={to}
+              {...props}
+            >
+              {children}
+            </Link>
+          </div>
+        );
+      }
+
     return (
         <header>
             <div className="container">
@@ -22,9 +41,9 @@ const Header = () => {
                 </h3>
 
                 <nav className={!open ? 'navigation' : 'navigation mobile-nav'}>
-                    <Link to="/home">Home</Link>
-                    <Link to="#">About</Link>
-                    <Link to="#">Blog</Link>
+                    <CustomLink to="/home">Home</CustomLink>
+                    <CustomLink to="/about">About</CustomLink>
+                    <CustomLink to="/blog">Blog</CustomLink>
 
                     {user ? (
                         <button onClick={() => signOut(auth)} className="btn">

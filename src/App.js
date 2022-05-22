@@ -3,11 +3,11 @@ import Footer from './Pages/Common/Footer/Footer';
 import Header from './Pages/Common/Header/Header';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
-import './App.css';
 import Register from './Pages/Login/Register/Register';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import './App.css';
 
 function App() {
   const [,loading] = useAuthState(auth);
@@ -15,7 +15,7 @@ function App() {
   if(loading) {
     return ''
   }
-  
+
   return (
     <>
       <Header></Header>
