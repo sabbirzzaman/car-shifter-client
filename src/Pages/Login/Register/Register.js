@@ -4,7 +4,7 @@ import {
     useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css';
@@ -17,6 +17,9 @@ const Register = () => {
 
     const [updateProfile, updating] = useUpdateProfile(auth);
 
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const {
         register,
         formState: { errors },
@@ -28,8 +31,10 @@ const Register = () => {
         await updateProfile({ displayName: name });
     };
 
+    const from = location.state?.from?.pathname || '/';
+
     if (user) {
-        console.log(user);
+        navigate(from, { replace: true });
     }
 
     return (
