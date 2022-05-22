@@ -48,7 +48,7 @@ const Reviews = () => {
                         ))}
                     </div>
                     <div className='review-title'>
-                        <h2>Client Reviews</h2>
+                        <h2>Clients Review</h2>
                     </div>
                 </div>
             </div>
