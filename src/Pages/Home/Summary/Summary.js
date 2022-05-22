@@ -12,19 +12,19 @@ const Summary = () => {
             icon: faUser,
         },
         {
-            id: 1,
+            id: 2,
             name: 'Annual Revenue',
             count: '10M',
             icon: faAngleUp,
         },
         {
-            id: 1,
+            id: 3,
             name: 'Reviews',
             count: '500',
             icon: faRankingStar,
         },
         {
-            id: 1,
+            id: 4,
             name: 'Parts Available',
             count: '50',
             icon: faCarSide,

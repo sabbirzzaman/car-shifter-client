@@ -1,0 +1,28 @@
+.review-section {
+    background-image: url('../../../images/review-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.review-section .overlay {
+    padding: 80px 0;
+}
+
+.review-title h2 {
+    margin-bottom: 40px;
+    color: #fff;
+    text-align: right;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}

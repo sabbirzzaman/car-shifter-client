@@ -12,3 +12,16 @@
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
 }
+
+/* Medium devices (landscape tablets, 689px and up) */
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .summary-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}

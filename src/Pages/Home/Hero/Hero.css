@@ -13,7 +13,7 @@
     width: 100%;
 }
 
-.overlay .container {
+.hero-section .overlay .container {
     max-width: 900px;
     text-align: center;
     display: flex;
@@ -24,28 +24,28 @@
     justify-content: center;
 }
 
-.overlay .container p {
+.hero-section .overlay .container p {
     margin-bottom: 20px;
 }
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
-    .overlay .container {
+    .hero-section .overlay .container {
         max-width: 700px;
     }
 }
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
-    .overlay .container {
+    .hero-section .overlay .container {
         max-width: 300px;
     }
 
-    .overlay .container p {
+    .hero-section .overlay .container p {
         display: none;
     }
     
-    .overlay .container h1 {
+    .hero-section .overlay .container h1 {
         margin-bottom: 20px;
     }
 }
