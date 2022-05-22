@@ -1,15 +1,17 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PartItem.css';
 
 const PartItem = ({ product }) => {
-    const { name, image, price, description, orderQuantity, inStock } = product;
+    const { _id ,name, image, price, description, orderQuantity, inStock } = product;
+    const navigate = useNavigate();
 
     return (
         <div className="product-item">
             <div className="purchase">
-                <button className="purchase-btn">
+                <button onClick={() => navigate(`/purchase/${_id}`)} className="purchase-btn">
                     <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                     Purchase now
                 </button>

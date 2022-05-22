@@ -6,8 +6,16 @@ import Login from './Pages/Login/Login/Login';
 import './App.css';
 import Register from './Pages/Login/Register/Register';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
 
 function App() {
+  const [,loading] = useAuthState(auth);
+
+  if(loading) {
+    return ''
+  }
+  
   return (
     <>
       <Header></Header>

@@ -1,19 +1,37 @@
 import React from 'react';
+import {
+    useCreateUserWithEmailAndPassword,
+    useUpdateProfile,
+} from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css';
 
 const Register = () => {
+    const [createUserWithEmailAndPassword, user, loading, error] =
+        useCreateUserWithEmailAndPassword(auth, {
+            sendEmailVerification: true,
+        });
+
+    const [updateProfile, updating] = useUpdateProfile(auth);
+
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async ({ name, email, password }) => {
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
     };
+
+    if (user) {
+        console.log(user);
+    }
+
     return (
         <section className="form-section">
             <div className="container">
