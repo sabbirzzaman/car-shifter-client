@@ -18,7 +18,7 @@ const Header = () => {
                     <Link to="/home">Home</Link>
                     <Link to="#">About</Link>
                     <Link to="#">Blog</Link>
-                    <button className='btn'>Login</button>
+                    <button onClick={() => navigate('/login')} className='btn'>Login</button>
                 </nav>
 
                 <div className="nav-ber">

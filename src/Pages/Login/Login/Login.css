@@ -1,0 +1,62 @@
+.login .container {
+    padding: 80px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-container {
+    width: 500px;
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.form-title h2 {
+    margin-bottom: 20px;
+}
+
+.form-title a {
+    font-weight: 600;
+    color: #e74c3c;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.field-group input:not(input[type='submit']) {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #f0f7ff;
+    background-color: #f9fcffb0;
+    border-radius: 0;
+}
+
+.field-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.required {
+    color: #e74c3c;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #161616;
+    margin: 20px 0;
+}
+
+.divider:after,
+.divider:before {
+    content: '';
+    display: block;
+    background: #161616;
+    width: 30%;
+    height: 1px;
+    margin: 0 10px;
+}

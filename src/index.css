@@ -15,8 +15,11 @@ h2,
 h3,
 h4,
 h5,
-nav,
-button {
+nav {
     font-family: 'Oxanium', cursive;
     text-transform: uppercase;
+}
+
+button {
+    font-family: 'Oxanium', cursive;
 }
