@@ -1,10 +1,9 @@
 import React from 'react';
-import './Login.css';
 import { useForm } from 'react-hook-form';
-import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
+import './ForgetPassword.css'
 
-const Login = () => {
+const ForgetPassword = () => {
     const {
         register,
         formState: { errors },
@@ -19,8 +18,9 @@ const Login = () => {
         <section className="form-section">
             <div className="container">
                 <div className="form-title">
-                    <h2>Login to your account!</h2>
-                    <p>New to Car Shifter? <Link to='/register'>Register Now</Link></p>
+                    <h2>Reset Password!</h2>
+                    <p>Enter the email address you used when you joined and we'll send you instructions to reset your password.</p>
+                    <p className='form-toggle'>A new member? <Link to='/register'>Register Now</Link></p>
                 </div>
 
                 <div className="form-container">
@@ -49,36 +49,7 @@ const Login = () => {
                             </p>
                         </div>
 
-                        <div className="field-group">
-                            <label htmlFor="password">
-                                Password <span className="required">*</span>
-                            </label>
-                            <input
-                                id="password"
-                                {...register('password', {
-                                    required: true,
-                                    minLength: {
-                                        value: 6,
-                                    },
-                                })}
-                            />
-                            <p className="error">
-                                {errors.password?.type === 'required' &&
-                                    'Password is required'}
-                            </p>
-                            <p className="error">
-                                {errors.password?.type === 'minLength' &&
-                                    'Must be 6 character or longer'}
-                            </p>
-                        </div>
-
                         <input className="btn" type="submit" />
-
-                        <p><Link to='/forget-password'>Forget Password?</Link></p>
-
-                        <div className="divider">OR</div>
-
-                           <SocialLogin></SocialLogin>
                     </form>
                 </div>
             </div>
@@ -86,4 +57,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default ForgetPassword;

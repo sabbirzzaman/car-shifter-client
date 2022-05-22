@@ -1,11 +1,11 @@
 .form-section .container {
     padding: 80px 0;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .form-container {
-    width: 500px;
+    margin-left: 80px;
     background-color: #fff;
     padding: 40px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
