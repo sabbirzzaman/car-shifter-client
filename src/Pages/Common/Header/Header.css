@@ -1,9 +1,9 @@
 header {
-    background-color: #f3f3f3;
+    background-color: #f6f6f6;
 }
 
 header .container {
-    background-color: #f3f3f3;
+    background-color: #f6f6f6;
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@ nav {
 @media only screen and (max-width: 992px) {
     .navigation {
         width: 100%;
-        background-color: #f3f3f3;
+        background-color: #f6f6f6;
         position: absolute;
         top: 0;
         left: 0;

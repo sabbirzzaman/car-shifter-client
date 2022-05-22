@@ -31,6 +31,14 @@ h4 {
     line-height: 25px;
 }
 
+h5 {
+    font-size: 14px;
+}
+
+img {
+    width: 100%;
+}
+
 .btn {
     background-color: #e74c3c;
     border: none;
@@ -65,13 +73,8 @@ h4 {
     }
     
     h3 {
-        font-size: 28px;
-        line-height: 38px;
-    }
-    
-    h4 {
-        font-size: 20px;
-        line-height: 25px;
+        font-size: 26px;
+        line-height: 36px;
     }
 }
 
@@ -94,10 +97,5 @@ h4 {
     h3 {
         font-size: 22px;
         line-height: 28px;
-    }
-    
-    h4 {
-        font-size: 20px;
-        line-height: 25px;
     }
 }

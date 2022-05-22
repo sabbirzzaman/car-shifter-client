@@ -1,0 +1,83 @@
+[
+    {
+        "_id": "628a2ca875fa8201ab869733",
+        "name": "Terrain Braker",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/M2KdM9k/img-1.jpg",
+        "price": 300,
+        "orderQuantity": 100,
+        "inStock": 34000
+    },
+    {
+        "_id": "628a2ca8a7731805068bdc2a",
+        "name": "Wheel Cover",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/FhmvG11/img-2.jpg",
+        "price": 30,
+        "orderQuantity": 100,
+        "inStock": 20000
+    },
+    {
+        "_id": "628a2ca8517b9f9ed276a27b",
+        "name": "Intake Pump",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/ySHQV8n/img-3.jpg",
+        "price": 20,
+        "orderQuantity": 100,
+        "inStock": 36000
+    },
+    {
+        "_id": "628a2ca837dd11c3edfab3b3",
+        "name": "Braking Blocks",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/gJRDpvF/img-4.jpg",
+        "price": 50,
+        "orderQuantity": 100,
+        "inStock": 33000
+    },
+    {
+        "_id": "628a2ca86142b868ab632bd5",
+        "name": "Sport Stereos",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/16HkKZL/img-5.jpg",
+        "price": 45,
+        "orderQuantity": 100,
+        "inStock": 25000
+    },
+    {
+        "_id": "628a2cef761059ed54af2488",
+        "name": "Sport Body",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/RDbTpYk/img-6.jpg",
+        "price": 329,
+        "orderQuantity": 100,
+        "inStock": 39000
+    },
+    {
+        "_id": "628a2cef17e34966f00476c5",
+        "name": "Audio Master",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/pW1nXk3/img-7.jpg",
+        "price": 59,
+        "orderQuantity": 100,
+        "inStock": 20000
+    },
+    {
+        "_id": "628a2cef6949425df225e89c",
+        "name": "Engine Maintenance",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/pRpgR7H/img-8.jpg",
+        "price": 20,
+        "orderQuantity": 100,
+        "inStock": 27000
+    },
+    {
+        "_id": "628a2cefd6cf67be93ba41de",
+        "name": "Car Lightning",
+        "description": "Reprehenderit magna duis adipisicing nulla aliquip adipisicing ad do culpa. Exercitation in veniam tempor est non minim nostrud",
+        "image": "https://i.ibb.co/2S9RSmc/img-9.jpg",
+        "price": 565,
+        "orderQuantity": 100,
+        "inStock": 35000
+    }
+]

@@ -12,7 +12,7 @@ const Hero = () => {
                         it's been involved in an accident.
                     </p>
                     <button className="btn">
-                        View Parts
+                        View Products
                     </button>
                 </div>
             </div>
