@@ -3,29 +3,41 @@ import './Login.css';
 import { useForm } from 'react-hook-form';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Login = () => {
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
+
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = ({ email, password }) => {
+        signInWithEmailAndPassword(email, password);
     };
+
+    if (user) {
+        console.log(user);
+    }
 
     return (
         <section className="form-section">
             <div className="container">
                 <div className="form-title">
                     <h2>Login to your account!</h2>
-                    <p>New to Car Shifter? <Link to='/register'>Register Now</Link></p>
+                    <p>
+                        New to Car Shifter?{' '}
+                        <Link to="/register">Register Now</Link>
+                    </p>
                 </div>
 
                 <div className="form-container">
                     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="field-group">
+                        <div className="field-group">
                             <label htmlFor="email">
                                 Email <span className="required">*</span>
                             </label>
@@ -74,11 +86,13 @@ const Login = () => {
 
                         <input className="btn" type="submit" />
 
-                        <p><Link to='/forget-password'>Forget Password?</Link></p>
+                        <p>
+                            <Link to="/forget-password">Forget Password?</Link>
+                        </p>
 
                         <div className="divider">OR</div>
 
-                           <SocialLogin></SocialLogin>
+                        <SocialLogin></SocialLogin>
                     </form>
                 </div>
             </div>
