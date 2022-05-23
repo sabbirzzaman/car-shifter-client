@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
@@ -16,14 +16,24 @@ const Purchase = () => {
         axios(`http://localhost:5000/parts/${id}`)
     );
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     if (isLoading) {
         return '';
     }
 
     const onSubmit = (data) => {
-        console.log(data);
+        axios
+            .post('http://localhost:5000/orders', data, {
+                headers: {
+                    'content-type': 'application/json',
+                },
+            })
+            .then((result) => {
+                if (result?.data?.acknowledged) {
+                    reset();
+                }
+            });
     };
 
     const { name, image, description, price, orderQuantity, inStock } =
@@ -69,7 +79,6 @@ const Purchase = () => {
                                 {...register('name')}
                                 required
                                 readOnly
-                                disabled
                             />
                         </div>
 
@@ -84,7 +93,6 @@ const Purchase = () => {
                                 {...register('email')}
                                 required
                                 readOnly
-                                disabled
                             />
                         </div>
 
@@ -107,7 +115,7 @@ const Purchase = () => {
                             <input
                                 id="phone"
                                 type="tel"
-                                placeholder="Your Address"
+                                placeholder="Your Phone Number"
                                 {...register('phone')}
                                 required
                             />

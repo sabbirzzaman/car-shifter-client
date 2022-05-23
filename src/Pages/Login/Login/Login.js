@@ -48,6 +48,7 @@ const Login = () => {
                             </label>
                             <input
                                 id="email"
+                                type="email"
                                 {...register('email', {
                                     required: true,
                                     pattern: {
@@ -72,6 +73,7 @@ const Login = () => {
                             </label>
                             <input
                                 id="password"
+                                type="password"
                                 {...register('password', {
                                     required: true,
                                     minLength: {

@@ -12,6 +12,9 @@ import Purchase from './Pages/Purchase/Purchase/Purchase';
 import Loader from './Pages/Common/Loader/Loader';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import './App.css';
+import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
+import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
+import AddAReview from './Pages/Dashboard/AddAReview/AddAReview';
 
 function App() {
     const [, loading] = useAuthState(auth);
@@ -34,7 +37,12 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
-                <Route path='dashboard' element={<Dashboard />}></Route>
+                <Route path='dashboard' element={<Dashboard />}>
+                    <Route index element={<MyOrders />}></Route>
+                    <Route path='my-orders' element={<MyOrders />}></Route>
+                    <Route path='add-a-review' element={<AddAReview />}></Route>
+                    <Route path='my-profile' element={<MyProfile />}></Route>
+                </Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>
                 <Route  path="forget-password" element={<ForgetPassword />}></Route>
