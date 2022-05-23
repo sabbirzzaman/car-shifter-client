@@ -1,9 +1,15 @@
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import Loader from '../Common/Loader/Loader';
+import Loader from '../../Common/Loader/Loader';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import './Payment.css';
+
+// stripe promises
+const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISH_KEY}`);
 
 const Payment = () => {
     const { id } = useParams();
@@ -16,8 +22,6 @@ const Payment = () => {
     if (isLoading) {
         return <Loader></Loader>;
     }
-
-    console.log(data.data)
 
     const { productName, image, price, quantity } = data.data;
 
@@ -47,7 +51,10 @@ const Payment = () => {
                     </div>
                 </div>
                 <div className="form-container">
-                    <h3>Order Information</h3>
+                    <h3>Complete Payment</h3>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm />
+                    </Elements>
                 </div>
             </div>
         </section>

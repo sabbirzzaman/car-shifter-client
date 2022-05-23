@@ -15,7 +15,8 @@ import './App.css';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 import AddAReview from './Pages/Dashboard/AddAReview/AddAReview';
-import Payment from './Pages/Payment/Payment';
+import Payment from './Pages/Payment/Payment/Payment';
+
 
 function App() {
     const [, loading] = useAuthState(auth);

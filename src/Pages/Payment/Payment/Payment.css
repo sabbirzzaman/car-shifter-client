@@ -3,3 +3,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+.payment-section .form-container {
+    height: fit-content;
+}
