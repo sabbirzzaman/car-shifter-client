@@ -9,7 +9,7 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import './Payment.css';
 
 // stripe promises
-const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISH_KEY}`);
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLISH_KEY}`);
 
 const Payment = () => {
     const { id } = useParams();
@@ -53,7 +53,7 @@ const Payment = () => {
                 <div className="form-container">
                     <h3>Complete Payment</h3>
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm price={totalPrice} order={data.data} />
                     </Elements>
                 </div>
             </div>
