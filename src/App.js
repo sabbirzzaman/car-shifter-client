@@ -7,11 +7,11 @@ import Register from './Pages/Login/Register/Register';
 import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
-import './App.css';
 import RequiredAuth from './Pages/Login/RequiredAuth/RequiredAuth';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
 import Loader from './Pages/Common/Loader/Loader';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import './App.css';
 
 function App() {
     const [, loading] = useAuthState(auth);
