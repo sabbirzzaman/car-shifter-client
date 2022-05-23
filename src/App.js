@@ -8,27 +8,38 @@ import ForgetPassword from './Pages/Login/ForgetPassword/ForgetPassword';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import './App.css';
+import RequiredAuth from './Pages/Login/RequiredAuth/RequiredAuth';
+import Purchase from './Pages/Purchase/Purchase/Purchase';
+import Loader from './Pages/Common/Loader/Loader';
 
 function App() {
-  const [,loading] = useAuthState(auth);
+    const [, loading] = useAuthState(auth);
 
-  if(loading) {
-    return ''
-  }
+    if (loading) {
+        return <Loader></Loader>
+    }
 
-  return (
-    <>
-      <Header></Header>
-      <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='home' element={<Home />}></Route>
-        <Route path='login' element={<Login />}></Route>
-        <Route path='register' element={<Register />}></Route>
-        <Route path='forget-password' element={<ForgetPassword />}></Route>
-      </Routes>
-      <Footer></Footer>
-    </>
-  );
+    return (
+        <>
+            <Header></Header>
+            <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="home" element={<Home />}></Route>
+                <Route
+                    path="purchase/:id"
+                    element={
+                        <RequiredAuth>
+                            <Purchase />
+                        </RequiredAuth>
+                    }
+                ></Route>
+                <Route path="login" element={<Login />}></Route>
+                <Route path="register" element={<Register />}></Route>
+                <Route  path="forget-password" element={<ForgetPassword />}></Route>
+            </Routes>
+            <Footer></Footer>
+        </>
+    );
 }
 
 export default App;
