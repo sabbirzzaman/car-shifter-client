@@ -5,13 +5,13 @@ import PartItem from '../PartItem/PartItem';
 import './Parts.css';
 
 const Parts = () => {
-    const {data: products, isLoading} = useQuery('products',() => axios.get('products.json'));
+    const {data: products, isLoading} = useQuery('products',() => axios.get('http://localhost:5000/parts'));
     
     if(isLoading) {
         return ''
     }
     
-    const productsLimit = products.data.slice(0, 6)
+    const productsLimit = products.data.slice(0, 6);
 
     return (
         <section className="parts-section">

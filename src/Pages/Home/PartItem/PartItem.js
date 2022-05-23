@@ -8,6 +8,8 @@ const PartItem = ({ product }) => {
     const { _id ,name, image, price, description, orderQuantity, inStock } = product;
     const navigate = useNavigate();
 
+    const shortDescription = description.slice(0, 120);
+
     return (
         <div className="product-item">
             <div className="purchase">
@@ -30,7 +32,7 @@ const PartItem = ({ product }) => {
                         <h5>{orderQuantity} items pack</h5>
                     </div>
                 </div>
-                <p className="details">{description}</p>
+                <p className="details" title={description}>{shortDescription}...</p>
             </div>
         </div>
     );

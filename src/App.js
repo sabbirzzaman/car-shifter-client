@@ -11,6 +11,7 @@ import './App.css';
 import RequiredAuth from './Pages/Login/RequiredAuth/RequiredAuth';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
 import Loader from './Pages/Common/Loader/Loader';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
     const [, loading] = useAuthState(auth);
@@ -33,6 +34,7 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
+                <Route path='dashboard' element={<Dashboard />}></Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>
                 <Route  path="forget-password" element={<ForgetPassword />}></Route>

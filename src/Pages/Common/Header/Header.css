@@ -1,9 +1,11 @@
 header {
-    background-color: #f6f6f6;
+    position: relative;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 header .container {
-    background-color: #f6f6f6;
+    background-color: #fff;
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -27,8 +29,66 @@ nav {
     z-index: 10;
 }
 
+.profile {
+    position: relative;
+}
+
+.profile img {
+    width: 30px;
+    cursor: pointer;
+    margin-top: 0px;
+}
+
+.profile-nav {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+}
+
+.profile-nav button {
+    background-color: #f6f6f6;
+    padding: 8px 0;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.profile-nav button:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.profile-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-inner h5 {
+    margin-top: 4px;
+}
+
+.hide-desktop {
+    display: none;
+}
+
 /* Medium devices (landscape tablets, phones 992px and down) */
 @media only screen and (max-width: 992px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    .hide-desktop {
+        display: block;
+    }
+
     .navigation {
         width: 100%;
         background-color: #f6f6f6;
@@ -49,7 +109,9 @@ nav {
     }
 
     .nav-ber {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 
     .nav-ber svg {

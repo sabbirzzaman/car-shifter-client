@@ -5,33 +5,36 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import userAvatar from '../../../images/user.png';
 import './Header.css';
 
 const Header = () => {
+    const [profileOpen, setProfileOpen] = useState(false);
     const [open, setOpen] = useState(false);
-    const navigate = useNavigate();
 
     // get user
     const [user, loading] = useAuthState(auth);
 
+    // use navigate
+    const navigate = useNavigate();
 
     // active route
     function CustomLink({ children, to, ...props }) {
         let resolved = useResolvedPath(to);
         let match = useMatch({ path: resolved.pathname, end: true });
-      
+
         return (
-          <div>
-            <Link
-              style={{ color: match ? "#e74c3c" : "" }}
-              to={to}
-              {...props}
-            >
-              {children}
-            </Link>
-          </div>
+            <div>
+                <Link
+                    style={{ color: match ? '#e74c3c' : '' }}
+                    to={to}
+                    {...props}
+                >
+                    {children}
+                </Link>
+            </div>
         );
-      }
+    }
 
     return (
         <header>
@@ -44,26 +47,74 @@ const Header = () => {
                     <CustomLink to="/home">Home</CustomLink>
                     <CustomLink to="/about">About</CustomLink>
                     <CustomLink to="/blog">Blog</CustomLink>
+                    {user && <CustomLink to="/dashboard">Dashboard</CustomLink>}
 
-                    {user ? (
-                        <button onClick={() => signOut(auth)} className="btn">
-                            Sign Out
-                        </button>
-                    ) : (
-                        <button
-                            onClick={() => navigate('/login')}
-                            className="btn"
-                        >
-                            Login
-                        </button>
+                    {!user && (
+                        <>
+                            <button
+                                onClick={() => navigate('/login')}
+                                className="btn"
+                            >
+                                Login
+                            </button>
+                        </>
                     )}
                 </nav>
+
+                {user && (
+                    <div className="profile hide-mobile">
+                        <div className="profile-inner">
+                            <h5>{user.displayName}</h5>
+                            <img
+                                onClick={() => setProfileOpen(!profileOpen)}
+                                src={userAvatar}
+                                alt="User"
+                            ></img>
+                        </div>
+
+                        {profileOpen && (
+                            <div className="profile-nav">
+                                <button className="menu-btn">Dashboard</button>
+                                <button
+                                    onClick={() => signOut(auth)}
+                                    className="menu-btn"
+                                >
+                                    Sign Out
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
 
                 <div className="nav-ber">
                     <FontAwesomeIcon
                         onClick={() => setOpen(!open)}
                         icon={!open ? faBars : faX}
                     ></FontAwesomeIcon>
+
+                    {user && (
+                        <div className="profile hide-desktop">
+                            <img
+                                onClick={() => setProfileOpen(!profileOpen)}
+                                src={userAvatar}
+                                alt="User"
+                            ></img>
+
+                            {profileOpen && (
+                                <div className="profile-nav">
+                                    <button className="menu-btn">
+                                        Dashboard
+                                    </button>
+                                    <button
+                                        onClick={() => signOut(auth)}
+                                        className="menu-btn"
+                                    >
+                                        Sign Out
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
         </header>
