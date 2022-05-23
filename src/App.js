@@ -15,6 +15,7 @@ import './App.css';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 import AddAReview from './Pages/Dashboard/AddAReview/AddAReview';
+import Payment from './Pages/Payment/Payment';
 
 function App() {
     const [, loading] = useAuthState(auth);
@@ -43,6 +44,7 @@ function App() {
                     <Route path='add-a-review' element={<AddAReview />}></Route>
                     <Route path='my-profile' element={<MyProfile />}></Route>
                 </Route>
+                <Route path='payment/:id' element={<Payment />}></Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>
                 <Route  path="forget-password" element={<ForgetPassword />}></Route>

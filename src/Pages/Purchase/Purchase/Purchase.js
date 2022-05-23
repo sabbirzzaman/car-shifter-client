@@ -22,13 +22,15 @@ const Purchase = () => {
         return '';
     }
 
-    const { name, image, description, price, orderQuantity, inStock } =
+    const { _id, name, image, description, price, orderQuantity, inStock } =
         data.data;
 
     const onSubmit = (data) => {
         const orders = {
+            productId: _id,
             productName: name,
             price,
+            image,
             ...data,
         };
 

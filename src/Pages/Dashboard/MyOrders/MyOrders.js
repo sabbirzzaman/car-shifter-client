@@ -64,28 +64,36 @@ const MyOrders = () => {
 
     return (
         <div className="order-container">
-            <h3>{user.displayName}'s Orders</h3>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.map((order) => (
-                        <OrdersTable
-                            key={order._id}
-                            order={order}
-                            deleteOrder={handleItemDelete}
-                        ></OrdersTable>
-                    ))}
-                </tbody>
-            </table>
+            {orders.length ? (
+                <>
+                    <h3>{user.displayName}'s Orders</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {orders.map((order) => (
+                                <OrdersTable
+                                    key={order._id}
+                                    order={order}
+                                    deleteOrder={handleItemDelete}
+                                ></OrdersTable>
+                            ))}
+                        </tbody>
+                    </table>
+                </>
+            ) : (
+                <>
+                    <h3>You don't placed any orders yet!</h3>
+                    <button className="btn">Order Now</button>
+                </>
+            )}
         </div>
     );
 };
