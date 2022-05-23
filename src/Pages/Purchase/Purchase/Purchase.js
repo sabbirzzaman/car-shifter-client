@@ -13,7 +13,7 @@ const Purchase = () => {
     const [{ email, displayName }] = useAuthState(auth);
 
     const { data, isLoading } = useQuery('part', () =>
-        axios(`http://localhost:5000/parts/${id}`)
+        axios.get(`http://localhost:5000/parts/${id}`)
     );
 
     const { register, handleSubmit, reset } = useForm();
@@ -22,9 +22,18 @@ const Purchase = () => {
         return '';
     }
 
+    const { name, image, description, price, orderQuantity, inStock } =
+        data.data;
+
     const onSubmit = (data) => {
+        const orders = {
+            productName: name,
+            price,
+            ...data,
+        };
+
         axios
-            .post('http://localhost:5000/orders', data, {
+            .post('http://localhost:5000/orders', orders, {
                 headers: {
                     'content-type': 'application/json',
                 },
@@ -35,9 +44,6 @@ const Purchase = () => {
                 }
             });
     };
-
-    const { name, image, description, price, orderQuantity, inStock } =
-        data.data;
 
     return (
         <section className="purchase-section">

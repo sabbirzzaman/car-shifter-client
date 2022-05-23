@@ -4,23 +4,46 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../../firebase.init';
 import Loader from '../../Common/Loader/Loader';
-import './MyOrders.css'
+import OrdersTable from '../OrdersTable/OrdersTable';
+import './MyOrders.css';
 
 const MyOrders = () => {
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
 
     // get user orders data
-    const {data, isLoading} = useQuery('orders', () => axios.get(`http://localhost:5000/orders?email=${user?.email}`))
+    const { data, isLoading } = useQuery('orders', () =>
+        axios.get(`http://localhost:5000/orders?email=${user?.email}`)
+    );
 
-    if(isLoading) {
-        return <Loader height="50vh"></Loader>
+    if (isLoading) {
+        return <Loader height="50vh"></Loader>;
     }
 
-    console.log(data.data)
+    const orders = data.data;
 
     return (
-        <div>
+        <div className="order-container">
             <h3>{user.displayName}'s Orders</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {orders.map((order) => (
+                        <OrdersTable
+                            key={order._id}
+                            order={order}
+                        ></OrdersTable>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
