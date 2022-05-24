@@ -116,7 +116,7 @@ const Register = () => {
                             </p>
                         </div>
 
-                        <input className="btn" type="submit" />
+                        <input className="btn" type="submit" value="Register" />
 
                         <div className="divider">OR</div>
 
