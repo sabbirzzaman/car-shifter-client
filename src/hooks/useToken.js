@@ -10,8 +10,7 @@ const useToken = (user) => {
         if (email) {
             const user = { email };
 
-            axios
-                .put(`http://localhost:5000/users/${email}`, user, {
+            axios.put(`http://localhost:5000/users/${email}`, user, {
                     headers: {
                         'content-type': 'application/json',
                     },

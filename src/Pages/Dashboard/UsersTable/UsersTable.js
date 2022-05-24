@@ -1,9 +1,49 @@
+import axios from 'axios';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
+import toast from 'react-hot-toast';
 import './UsersTable.css';
 
-const UsersTable = ({ user, index }) => {
+const UsersTable = ({ user, index, refetch }) => {
     const { email, name, role } = user;
+
+    const handleMakeAdmin = () => {
+        confirmAlert({
+            title: `Confirm Make Admin.`,
+            message: 'Are you sure you want to make an admin?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        axios
+                            .put(
+                                `http://localhost:5000/users/admin/${email}`,
+                                {},
+                                {
+                                    headers: {
+                                        authorization: `Bearer ${localStorage.getItem(
+                                            'accessToken'
+                                        )}`,
+                                    },
+                                }
+                            )
+                            .then((data) => {
+                                if (data?.data?.acknowledged) {
+                                    toast.success(
+                                        'Successfully admin assigned.'
+                                    );
+                                    refetch()
+                                }
+                            });
+                    },
+                },
+                {
+                    label: 'No',
+                    onClick: () => '',
+                },
+            ],
+        });
+    };
 
     return (
         <tr>
@@ -18,7 +58,8 @@ const UsersTable = ({ user, index }) => {
                             backgroundColor: '#2ecc71',
                             width: '100%',
                         }}
-                        className="pay"
+                        className="action"
+                        onClick={handleMakeAdmin}
                     >
                         Make admin
                     </button>

@@ -24,7 +24,7 @@ tbody td:first-child, thead th:first-child {
     text-align: left;
 }
 
-.status, .pay, .cancel {
+.status, .action, .cancel {
     padding: 2px 10px;
     border: none;
     color: #fff;

@@ -37,7 +37,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
                                 backgroundColor: '#2ecc71',
                                 width: '100%',
                             }}
-                            className="pay"
+                            className="action"
                             onClick={() => navigate(`/payment/${_id}`)}
                         >
                             Pay

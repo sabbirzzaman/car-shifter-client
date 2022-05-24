@@ -7,7 +7,7 @@ import './ManageUsers.css';
 
 const ManageUsers = () => {
     // get user orders data
-    const { data: users, isLoading } = useQuery('orders', () =>
+    const { data: users, isLoading, refetch } = useQuery('orders', () =>
         axios.get(`http://localhost:5000/users`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -40,6 +40,7 @@ const ManageUsers = () => {
                             key={user._id}
                             user={user}
                             index={index}
+                            refetch={refetch}
                         ></UsersTable>
                     ))}
                 </tbody>
