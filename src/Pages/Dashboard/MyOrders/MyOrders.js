@@ -8,22 +8,33 @@ import OrdersTable from '../OrdersTable/OrdersTable';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import './MyOrders.css';
+import { signOut } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const MyOrders = () => {
     // get user information
-    const [user] = useAuthState(auth);
+    const [{ email, displayName }] = useAuthState(auth);
 
     const [orders, setOrders] = useState([]);
 
     // get user orders data
-    const { data } = useQuery('orders', () =>
-        axios.get(`http://localhost:5000/orders?email=${user?.email}`)
+    const { data, error } = useQuery(['orders', email], () =>
+        axios.get(`http://localhost:5000/orders?email=${email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            },
+        })
     );
 
     // order array
     useEffect(() => {
         setOrders(data?.data);
     }, [data]);
+
+    if(error?.response?.status === 401 || error?.response?.status === 403) {
+        signOut(auth)
+        return toast.error('Login Expired')
+    }
 
     // loading spinner
     if (!orders) {
@@ -66,7 +77,7 @@ const MyOrders = () => {
         <div className="order-container">
             {orders.length ? (
                 <>
-                    <h3>{user.displayName}'s Orders</h3>
+                    <h3>{displayName}'s Orders</h3>
                     <table>
                         <thead>
                             <tr>

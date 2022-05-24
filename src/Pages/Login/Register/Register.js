@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     useCreateUserWithEmailAndPassword,
     useUpdateProfile,
@@ -6,6 +6,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css';
 
@@ -33,9 +34,13 @@ const Register = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    const [token] = useToken(user);
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate]);
 
     return (
         <section className="form-section">
