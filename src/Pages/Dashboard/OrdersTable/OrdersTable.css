@@ -26,8 +26,9 @@ tbody td:first-child, thead th:first-child {
 
 .status, .pay, .cancel {
     padding: 2px 10px;
-    border: 0;
+    border: none;
     color: #fff;
+    border-radius: 4px;
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;

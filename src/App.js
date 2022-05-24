@@ -16,13 +16,13 @@ import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 import AddAReview from './Pages/Dashboard/AddAReview/AddAReview';
 import Payment from './Pages/Payment/Payment/Payment';
-
+import { Toaster } from 'react-hot-toast';
 
 function App() {
     const [, loading] = useAuthState(auth);
 
     if (loading) {
-        return <Loader></Loader>
+        return <Loader></Loader>;
     }
 
     return (
@@ -39,18 +39,22 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
-                <Route path='dashboard' element={<Dashboard />}>
+                <Route path="dashboard" element={<Dashboard />}>
                     <Route index element={<MyOrders />}></Route>
-                    <Route path='my-orders' element={<MyOrders />}></Route>
-                    <Route path='add-a-review' element={<AddAReview />}></Route>
-                    <Route path='my-profile' element={<MyProfile />}></Route>
+                    <Route path="my-orders" element={<MyOrders />}></Route>
+                    <Route path="add-a-review" element={<AddAReview />}></Route>
+                    <Route path="my-profile" element={<MyProfile />}></Route>
                 </Route>
-                <Route path='payment/:id' element={<Payment />}></Route>
+                <Route path="payment/:id" element={<Payment />}></Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>
-                <Route  path="forget-password" element={<ForgetPassword />}></Route>
+                <Route
+                    path="forget-password"
+                    element={<ForgetPassword />}
+                ></Route>
             </Routes>
             <Footer></Footer>
+            <Toaster position="top-right" reverseOrder={false} />
         </>
     );
 }

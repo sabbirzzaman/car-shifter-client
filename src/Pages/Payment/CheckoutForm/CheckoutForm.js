@@ -1,25 +1,31 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import { useNavigate } from 'react-router-dom';
 import './CheckoutForm.css';
-import axios from 'axios';
-import Loader from '../../Common/Loader/Loader';
+import toast from 'react-hot-toast';
 
 const CheckoutForm = ({ price, order }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState('');
-    const [transactionId, setTransactionId] = useState('');
-    const [processing, setProcessing] = useState(false);
+
+    const navigate = useNavigate();
 
     // user info
     const { _id, name, email } = order;
 
     useEffect(() => {
-        axios.post('http://localhost:5000/create-payment-intent', {price}, {
-                headers: {
-                    'content-type': 'application/json',
-                },
-            })
+        axios
+            .post(
+                'http://localhost:5000/create-payment-intent',
+                { price },
+                {
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                }
+            )
             .then((data) => {
                 if (data?.data?.clientSecret) {
                     setClientSecret(data?.data?.clientSecret);
@@ -41,18 +47,12 @@ const CheckoutForm = ({ price, order }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
 
-        if (error) {
-            console.log(error.message);
-        }
-
-        // confirm payment 
-        setProcessing(true);
-
+        // confirm payment
         const { paymentIntent, error: intentError } =
             await stripe.confirmCardPayment(clientSecret, {
                 payment_method: {
@@ -65,12 +65,9 @@ const CheckoutForm = ({ price, order }) => {
             });
 
         if (intentError) {
-            console.log(intentError.message);
-            setProcessing(false);
+            console.log(intentError)
+            toast.error(intentError.message);
         } else {
-            console.log(paymentIntent);
-            setTransactionId(paymentIntent.id);
-
             const payment = {
                 orderId: _id,
                 transactionId: paymentIntent.id,
@@ -83,15 +80,13 @@ const CheckoutForm = ({ price, order }) => {
                     },
                 })
                 .then((data) => {
-                    setProcessing(false);
-                    console.log(data);
+                    if (data?.data?.acknowledged) {
+                        navigate('/')
+                        toast.success('Payment Successful!')
+                    }
                 });
         }
     };
-
-    if(processing) {
-        return <Loader height="fit-content"></Loader>
-    }
 
     return (
         <form className="payment-form" onSubmit={handleSubmit}>
@@ -116,7 +111,7 @@ const CheckoutForm = ({ price, order }) => {
                 type="submit"
                 disabled={!stripe || !clientSecret}
             >
-                Pay
+                Pay Now
             </button>
         </form>
     );
