@@ -13,7 +13,11 @@ const AddAReview = () => {
 
     // get user orders data
     const { data, isLoading } = useQuery('orders', () =>
-        axios.get(`http://localhost:5000/orders?email=${user?.email}`)
+        axios.get(`http://localhost:5000/orders?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
     );
 
     if(isLoading) {

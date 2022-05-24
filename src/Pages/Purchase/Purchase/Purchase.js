@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -38,13 +40,22 @@ const Purchase = () => {
             .post('http://localhost:5000/orders', orders, {
                 headers: {
                     'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 },
             })
             .then((result) => {
                 if (result?.data?.acknowledged) {
                     reset();
+                    toast.success('Product Added To My Cart. For Payment please Check Out Dashboard > My Orders')
                 }
-            });
+            })
+            .catch(err => {
+                if(err.response.status === 403 || err.response.status === 401) {
+                    signOut(auth)
+                    localStorage.removeItem('accessToken')
+                    toast.error("Login Expired")
+                }
+            })
     };
 
     return (

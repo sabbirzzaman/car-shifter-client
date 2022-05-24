@@ -33,6 +33,7 @@ const MyOrders = () => {
 
     if(error?.response?.status === 401 || error?.response?.status === 403) {
         signOut(auth)
+        localStorage.removeItem('accessToken')
         return toast.error('Login Expired')
     }
 

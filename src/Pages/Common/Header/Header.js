@@ -36,6 +36,11 @@ const Header = () => {
         );
     }
 
+    const handleSignOut = () => {
+        localStorage.removeItem('accessToken');
+        signOut(auth)
+    }
+
     return (
         <header>
             <div className="container">
@@ -76,7 +81,7 @@ const Header = () => {
                             <div className="profile-nav">
                                 <button className="menu-btn">Dashboard</button>
                                 <button
-                                    onClick={() => signOut(auth)}
+                                    onClick={handleSignOut}
                                     className="menu-btn"
                                 >
                                     Sign Out
