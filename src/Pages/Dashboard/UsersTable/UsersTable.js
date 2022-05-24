@@ -34,7 +34,11 @@ const UsersTable = ({ user, index, refetch }) => {
                                     );
                                     refetch()
                                 }
-                            });
+                            }).catch(err => {
+                                if(err.response.status === 403) {
+                                    toast.error('Only admins can make an admin')
+                                }
+                            })
                     },
                 },
                 {
