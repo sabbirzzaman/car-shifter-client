@@ -17,6 +17,7 @@ import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 import AddAReview from './Pages/Dashboard/AddAReview/AddAReview';
 import Payment from './Pages/Payment/Payment/Payment';
 import { Toaster } from 'react-hot-toast';
+import ReviewForm from './Pages/Dashboard/ReviewForm/ReviewForm';
 
 function App() {
     const [, loading] = useAuthState(auth);
@@ -43,6 +44,7 @@ function App() {
                     <Route index element={<MyOrders />}></Route>
                     <Route path="my-orders" element={<MyOrders />}></Route>
                     <Route path="add-a-review" element={<AddAReview />}></Route>
+                    <Route path="add-a-review/:id" element={<ReviewForm />}></Route>
                     <Route path="my-profile" element={<MyProfile />}></Route>
                 </Route>
                 <Route path="payment/:id" element={<Payment />}></Route>

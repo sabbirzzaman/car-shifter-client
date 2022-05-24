@@ -36,7 +36,7 @@ const AddAReview = () => {
                                 <th>Product Name</th>
                                 <th>Price</th>
                                 <th>Transaction Id</th>
-                                <th>Action</th>
+                                <th>Add Review</th>
                             </tr>
                         </thead>
                         <tbody>
