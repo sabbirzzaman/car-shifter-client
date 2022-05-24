@@ -6,12 +6,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import useAdmin from '../../../hooks/useAdmin';
 import './Dashboard.css';
 
 const Dashboard = () => {
-    const [admin] = useAdmin();
+    const [user] = useAuthState(auth)
+    
+    const [admin] = useAdmin(user);
 
     return (
         <section className="dashboard-section">

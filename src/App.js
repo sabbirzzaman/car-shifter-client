@@ -19,13 +19,20 @@ import Payment from './Pages/Payment/Payment/Payment';
 import { Toaster } from 'react-hot-toast';
 import ReviewForm from './Pages/Dashboard/ReviewForm/ReviewForm';
 import ManageUsers from './Pages/Dashboard/ManageUsers/ManageUsers';
+import RequiredAdmin from './Pages/Login/RequiredAdmin/RequiredAdmin';
+import useAdmin from './hooks/useAdmin';
 
 function App() {
-    const [, loading] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
+
+    const [admin] = useAdmin(user);
+    
     if (loading) {
         return <Loader></Loader>;
     }
+
+    console.log(admin)
 
     return (
         <>
@@ -41,13 +48,31 @@ function App() {
                         </RequiredAuth>
                     }
                 ></Route>
-                <Route path="dashboard" element={<RequiredAuth><Dashboard /></RequiredAuth>}>
-                    <Route index element={<MyOrders />}></Route>
+                <Route
+                    path="dashboard"
+                    element={
+                        <RequiredAuth>
+                            <Dashboard />
+                        </RequiredAuth>
+                    }
+                >
+                    <Route index={!admin && true} element={<MyOrders />}></Route>
                     <Route path="my-orders" element={<MyOrders />}></Route>
                     <Route path="add-a-review" element={<AddAReview />}></Route>
-                    <Route path="add-a-review/:id" element={<ReviewForm />}></Route>
+                    <Route
+                        path="add-a-review/:id"
+                        element={<ReviewForm />}
+                    ></Route>
+                    <Route index={admin && true} element={<MyProfile />}></Route>
                     <Route path="my-profile" element={<MyProfile />}></Route>
-                    <Route path="manage-users" element={<ManageUsers />}></Route>
+                    <Route
+                        path="manage-users"
+                        element={
+                            <RequiredAdmin>
+                                <ManageUsers />
+                            </RequiredAdmin>
+                        }
+                    ></Route>
                 </Route>
                 <Route path="payment/:id" element={<Payment />}></Route>
                 <Route path="login" element={<Login />}></Route>

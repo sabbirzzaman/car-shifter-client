@@ -1,17 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import auth from '../firebase.init';
 
-const useAdmin = () => {
+const useAdmin = (user) => {
     const [admin, setAdmin] = useState(false);
-
-    const [{ email }] = useAuthState(auth);
+    const [adminLoading, setAdminLoading] = useState(true);
 
     // get user orders data
-    const { data: users } = useQuery('user', () =>
-        axios.get(`http://localhost:5000/user/${email}`, {
+    const { data: users } = useQuery(['user', user], () =>
+        axios.get(`http://localhost:5000/user/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },
@@ -21,12 +18,14 @@ const useAdmin = () => {
     useEffect(() => {
         if (users?.data.role) {
             setAdmin(true);
+            setAdminLoading(false)
         } else {
             setAdmin(false);
+            setAdminLoading(false)
         }
     }, [users?.data.role]);
 
-    return [admin];
+    return [admin, adminLoading];
 };
 
 export default useAdmin;
