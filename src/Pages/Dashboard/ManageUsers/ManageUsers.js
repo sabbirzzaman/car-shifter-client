@@ -23,7 +23,7 @@ const ManageUsers = () => {
 
     return (
         <div className="order-container">
-            <h3>Add Reviews</h3>
+            <h3>Manage Users</h3>
             <table className="review-table">
                 <thead>
                     <tr>

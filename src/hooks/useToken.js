@@ -6,9 +6,10 @@ const useToken = (user) => {
 
     useEffect(() => {
         const email = user?.user?.email;
+        const name = user?.user?.displayName;
 
         if (email) {
-            const user = { email };
+            const user = { email, name };
 
             axios.put(`http://localhost:5000/users/${email}`, user, {
                     headers: {
@@ -16,7 +17,9 @@ const useToken = (user) => {
                     },
                 })
                 .then((data) => {
-                    const accessToken = data.data.token;
+                    const accessToken = data.data.accessToken;
+
+                    console.log(data)
 
                     localStorage.setItem('accessToken', accessToken);
                     setToken(accessToken);

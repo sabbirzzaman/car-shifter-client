@@ -99,6 +99,7 @@ const Register = () => {
                             </label>
                             <input
                                 id="password"
+                                type="password"
                                 {...register('password', {
                                     required: true,
                                     minLength: {
