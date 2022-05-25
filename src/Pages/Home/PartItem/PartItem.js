@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import './PartItem.css';
 
 const PartItem = ({ product }) => {
-    const { _id ,name, image, price, description, orderQuantity, inStock } = product;
+    const { _id, name, image, price, description, orderQuantity, inStock } =
+        product;
     const navigate = useNavigate();
 
     const shortDescription = description.slice(0, 120);
@@ -13,7 +14,10 @@ const PartItem = ({ product }) => {
     return (
         <div className="product-item">
             <div className="purchase">
-                <button onClick={() => navigate(`/purchase/${_id}`)} className="purchase-btn">
+                <button
+                    onClick={() => navigate(`/purchase/${_id}`)}
+                    className="purchase-btn"
+                >
                     <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
                     Purchase now
                 </button>
@@ -32,7 +36,9 @@ const PartItem = ({ product }) => {
                         <h5>{orderQuantity} items pack</h5>
                     </div>
                 </div>
-                <p className="details" title={description}>{shortDescription}...</p>
+                <p className="details" title={description}>
+                    {shortDescription}...
+                </p>
             </div>
         </div>
     );

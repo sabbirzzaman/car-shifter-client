@@ -63,6 +63,10 @@ img {
     margin-bottom: 10px;
 }
 
+input::placeholder, textarea::placeholder {
+    color: rgba(22, 22, 22, 0.6);
+}
+
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
     .container {

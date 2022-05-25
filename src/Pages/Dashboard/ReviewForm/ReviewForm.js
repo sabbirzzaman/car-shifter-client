@@ -50,7 +50,7 @@ const ReviewForm = () => {
         <div className='review-form-container'>
             <h3>Add Review for - {productName}</h3>
 
-            <div className="form-container review-form">
+            <div className="review-form">
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="field-group">
                         <label htmlFor="Rating">

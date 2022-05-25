@@ -19,9 +19,6 @@ const useAdmin = (user) => {
         if (users?.data.role) {
             setAdmin(true);
             setAdminLoading(false)
-        } else {
-            setAdmin(false);
-            setAdminLoading(false)
         }
     }, [users?.data.role]);
 

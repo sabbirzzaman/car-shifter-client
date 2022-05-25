@@ -21,6 +21,9 @@ import ReviewForm from './Pages/Dashboard/ReviewForm/ReviewForm';
 import ManageUsers from './Pages/Dashboard/ManageUsers/ManageUsers';
 import RequiredAdmin from './Pages/Login/RequiredAdmin/RequiredAdmin';
 import useAdmin from './hooks/useAdmin';
+import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders';
+import AddProducts from './Pages/Dashboard/AddProducts/AddProducts';
+import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 
 function App() {
     const [user, loading] = useAuthState(auth);
@@ -63,14 +66,10 @@ function App() {
                     ></Route>
                     <Route index={admin && true} element={<MyProfile />}></Route>
                     <Route path="my-profile" element={<MyProfile />}></Route>
-                    <Route
-                        path="manage-users"
-                        element={
-                            <RequiredAdmin>
-                                <ManageUsers />
-                            </RequiredAdmin>
-                        }
-                    ></Route>
+                    <Route path="manage-users" element={<RequiredAdmin><ManageUsers /></RequiredAdmin>}></Route>
+                    <Route path="manage-orders" element={<RequiredAdmin><ManageOrders /></RequiredAdmin>}></Route>
+                    <Route path="add-products" element={<RequiredAdmin><AddProducts /></RequiredAdmin>}></Route>
+                    <Route path="manage-products" element={<RequiredAdmin><ManageProducts /></RequiredAdmin>}></Route>
                 </Route>
                 <Route path="payment/:id" element={<Payment />}></Route>
                 <Route path="login" element={<Login />}></Route>

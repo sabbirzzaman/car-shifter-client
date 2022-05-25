@@ -13,8 +13,8 @@ import useAdmin from '../../../hooks/useAdmin';
 import './Dashboard.css';
 
 const Dashboard = () => {
-    const [user] = useAuthState(auth)
-    
+    const [user] = useAuthState(auth);
+
     const [admin] = useAdmin(user);
 
     return (
@@ -48,13 +48,44 @@ const Dashboard = () => {
                         Profile
                     </Link>
                     {admin && (
-                        <Link
-                            to="/dashboard/manage-users"
-                            className="btn-dashboard"
-                        >
-                            <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
-                            Manage Users
-                        </Link>
+                        <>
+                            <Link
+                                to="/dashboard/manage-users"
+                                className="btn-dashboard"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faUsers}
+                                ></FontAwesomeIcon>
+                                Manage Users
+                            </Link>
+                            <Link
+                                to="/dashboard/manage-orders"
+                                className="btn-dashboard"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faUsers}
+                                ></FontAwesomeIcon>
+                                Manage Orders
+                            </Link>
+                            <Link
+                                to="/dashboard/add-products"
+                                className="btn-dashboard"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faUsers}
+                                ></FontAwesomeIcon>
+                                Add Products
+                            </Link>
+                            <Link
+                                to="/dashboard/manage-products"
+                                className="btn-dashboard"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faUsers}
+                                ></FontAwesomeIcon>
+                                Manage Products
+                            </Link>
+                        </>
                     )}
                 </div>
 
