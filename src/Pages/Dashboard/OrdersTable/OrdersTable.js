@@ -27,7 +27,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
                         style={{ backgroundColor: '#2ecc71' }}
                         className="status"
                     >
-                        Paid
+                        Pending
                     </button>
                 )}
             </td>

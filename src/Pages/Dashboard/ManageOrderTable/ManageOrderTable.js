@@ -1,10 +1,10 @@
 import React from 'react';
-import './ManageOrderTable.css'
+import './ManageOrderTable.css';
 
-const ManageOrderTable = ({order, deleteOrder}) => {
-    const { _id, productName, price, quantity, paid } = order;
+const ManageOrderTable = ({ order, deleteOrder, changeStatus }) => {
+    const { _id, productName, price, quantity, paid, status } = order;
 
-    const totalPrice = parseInt(price) * parseInt(quantity)
+    const totalPrice = parseInt(price) * parseInt(quantity);
 
     return (
         <tr>
@@ -24,32 +24,33 @@ const ManageOrderTable = ({order, deleteOrder}) => {
                         style={{ backgroundColor: '#2ecc71' }}
                         className="status"
                     >
-                        Pending
+                        {status ? 'Shipped' : 'Pending'}
                     </button>
                 )}
             </td>
             <td>
                 {!paid ? (
-                    <>
-                        <button
-                            style={{
-                                backgroundColor: '#e74c3c',
-                                width: '100%',
-                            }}
-                            className="cancel"
-                            onClick={() => deleteOrder(_id)}
-                        >
-                            Cancel
-                        </button>
-                    </>
+                    <button
+                        style={{
+                            backgroundColor: '#e74c3c',
+                            width: '100%',
+                        }}
+                        className="cancel"
+                        onClick={() => deleteOrder(_id)}
+                    >
+                        Cancel
+                    </button>
                 ) : (
                     <>
-                        <button
-                            style={{ backgroundColor: '#2ecc71' }}
-                            className="status"
-                        >
-                            Approve
-                        </button>
+                        {!status ? (
+                            <button
+                                style={{ backgroundColor: '#2ecc71' }}
+                                className="status"
+                                onClick={() => changeStatus(_id)}
+                            >
+                                Approve
+                            </button>
+                        ) : 'Completed'}
                     </>
                 )}
             </td>

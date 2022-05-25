@@ -5,6 +5,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import Loader from '../../Common/Loader/Loader';
 import ManageOrderTable from '../ManageOrderTable/ManageOrderTable';
 import './ManageOrders.css';
+import toast from 'react-hot-toast';
 
 const ManageOrders = () => {
     // get orders data
@@ -37,10 +38,51 @@ const ManageOrders = () => {
                             .then((data) => {
                                 if (data?.data?.deletedCount > 0) {
                                     refetch();
+                                    toast.success('Order cancel successfully!');
                                 }
                             })
                             .catch((err) => {
-                                console.log(err);
+                                toast.error('Failed to cancel order!');
+                            });
+                    },
+                },
+                {
+                    label: 'No',
+                    onClick: () => '',
+                },
+            ],
+        });
+    };
+
+    const handleChangeStatus = (id) => {
+        confirmAlert({
+            title: 'Confirm Shipped Order',
+            message: 'Are you sure you want to shipped this order?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => {
+                        const status = { status: 'shipped' };
+                        axios
+                            .patch(
+                                `http://localhost:5000/order/${id}`,
+                                status,
+                                {
+                                    headers: {
+                                        'content-type': 'application/json',
+                                        authorization: `Bearer ${localStorage.getItem(
+                                            'accessToken'
+                                        )}`,
+                                    },
+                                }
+                            )
+                            .then((data) => {
+                                if (data.data.acknowledged) {
+                                    refetch();
+                                    toast.success(
+                                        'Order shipped successfully!'
+                                    );
+                                }
                             });
                     },
                 },
@@ -72,6 +114,7 @@ const ManageOrders = () => {
                             order={order}
                             index={index}
                             deleteOrder={handleItemDelete}
+                            changeStatus={handleChangeStatus}
                         ></ManageOrderTable>
                     ))}
                 </tbody>

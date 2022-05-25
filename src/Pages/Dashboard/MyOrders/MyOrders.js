@@ -55,10 +55,11 @@ const MyOrders = () => {
                             .then((data) => {
                                 if (data?.data?.deletedCount > 0) {
                                     refetch();
+                                    toast.success('Order cancel successfully!')
                                 }
                             })
                             .catch((err) => {
-                                console.log(err);
+                                toast.error('Failed to cancel order!')
                             });
                     },
                 },
