@@ -1,0 +1,16 @@
+.profile-section h3 {
+    margin-bottom: 20px;
+}
+
+.my-profile {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.profile-info, .profile-image {
+    padding: 0px 20px;
+}
+
+.profile-info h4 {
+    margin-bottom: 20px;
+}

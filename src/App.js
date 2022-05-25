@@ -32,8 +32,6 @@ function App() {
         return <Loader></Loader>;
     }
 
-    console.log(admin)
-
     return (
         <>
             <Header></Header>
