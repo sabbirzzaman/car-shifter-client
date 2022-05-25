@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from '../../../firebase.init';
@@ -15,32 +15,31 @@ const MyOrders = () => {
     // get user information
     const [{ email, displayName }] = useAuthState(auth);
 
-    const [orders, setOrders] = useState([]);
-
     // get user orders data
-    const { data, error } = useQuery(['orders', email], () =>
-        axios.get(`http://localhost:5000/orders?email=${email}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-            },
-        })
+    const { data, isLoading, error, refetch } = useQuery(
+        ['orders', email],
+        () =>
+            axios.get(`http://localhost:5000/orders?email=${email}`, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        'accessToken'
+                    )}`,
+                },
+            })
     );
 
-    // order array
-    useEffect(() => {
-        setOrders(data?.data);
-    }, [data]);
-
-    if(error?.response?.status === 401 || error?.response?.status === 403) {
-        signOut(auth)
-        localStorage.removeItem('accessToken')
-        return toast.error('Login Expired')
+    if (error?.response?.status === 401 || error?.response?.status === 403) {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+        return toast.error('Login Expired');
     }
 
     // loading spinner
-    if (!orders) {
+    if (isLoading) {
         return <Loader height="50vh"></Loader>;
     }
+
+    const orders = data.data;
 
     // cancel order
     const handleItemDelete = (id) => {
@@ -55,10 +54,7 @@ const MyOrders = () => {
                             .delete(`http://localhost:5000/order?id=${id}`)
                             .then((data) => {
                                 if (data?.data?.deletedCount > 0) {
-                                    const updatedOrders = orders.filter(
-                                        (order) => order._id !== id
-                                    );
-                                    setOrders(updatedOrders);
+                                    refetch();
                                 }
                             })
                             .catch((err) => {
@@ -84,7 +80,7 @@ const MyOrders = () => {
                             <tr>
                                 <th>Product Name</th>
                                 <th>Quantity</th>
-                                <th>Price</th>
+                                <th>Total Price</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>

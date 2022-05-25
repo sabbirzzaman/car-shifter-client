@@ -1,7 +1,7 @@
 import React from 'react';
 import './ManageOrderTable.css'
 
-const ManageOrderTable = ({order, handleDeleteOrder}) => {
+const ManageOrderTable = ({order, deleteOrder}) => {
     const { _id, productName, price, quantity, paid } = order;
 
     const totalPrice = parseInt(price) * parseInt(quantity)
@@ -37,7 +37,7 @@ const ManageOrderTable = ({order, handleDeleteOrder}) => {
                                 width: '100%',
                             }}
                             className="cancel"
-                            onClick={() => handleDeleteOrder(_id)}
+                            onClick={() => deleteOrder(_id)}
                         >
                             Cancel
                         </button>

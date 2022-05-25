@@ -5,7 +5,7 @@ import './OrdersTable.css';
 const OrdersTable = ({ order, deleteOrder }) => {
     const { _id, productName, price, quantity, paid } = order;
 
-    console.log(paid)
+    const totalPrice = parseInt(price) * parseInt(quantity)
 
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
         <tr>
             <td>{productName}</td>
             <td>{quantity} Pice</td>
-            <td>${price}.00</td>
+            <td>${totalPrice}.00</td>
             <td>
                 {!paid ? (
                     <button
