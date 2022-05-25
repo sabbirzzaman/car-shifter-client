@@ -22,7 +22,7 @@ const ManageUsers = () => {
     const allUsers = users?.data;
 
     return (
-        <div className="order-container">
+        <div className="table-container">
             <h3>Manage Users</h3>
             <table className="review-table">
                 <thead>

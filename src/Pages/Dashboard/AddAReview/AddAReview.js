@@ -29,7 +29,7 @@ const AddAReview = () => {
     const paidOrders = orders.filter(order => order.paid === true)
 
     return (
-        <div className="order-container">
+        <div className="table-container">
             {orders.length ? (
                 <>
                     <h3>Add Reviews</h3>

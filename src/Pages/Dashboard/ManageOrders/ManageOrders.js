@@ -95,7 +95,7 @@ const ManageOrders = () => {
     };
 
     return (
-        <div className="order-container">
+        <div className="table-container">
             <h3>Manage Orders</h3>
             <table>
                 <thead>

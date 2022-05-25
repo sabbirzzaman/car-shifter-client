@@ -72,7 +72,7 @@ const MyOrders = () => {
     };
 
     return (
-        <div className="order-container">
+        <div className="table-container">
             {orders.length ? (
                 <>
                     <h3>{displayName}'s Orders</h3>
