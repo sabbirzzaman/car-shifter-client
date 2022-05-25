@@ -24,6 +24,7 @@ import useAdmin from './hooks/useAdmin';
 import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders';
 import AddProducts from './Pages/Dashboard/AddProducts/AddProducts';
 import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
+import NotFounded from './Pages/Common/NotFounded/NotFounded';
 
 function App() {
     const [user, loading] = useAuthState(auth);
@@ -78,6 +79,7 @@ function App() {
                     path="forget-password"
                     element={<ForgetPassword />}
                 ></Route>
+                <Route path='*' element={<NotFounded />}></Route>
             </Routes>
             <Footer></Footer>
             <Toaster position="top-right" reverseOrder={false} />
