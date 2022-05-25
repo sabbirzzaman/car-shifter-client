@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import './AddProducts.css';
 
 const AddProducts = () => {
@@ -12,7 +13,12 @@ const AddProducts = () => {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
-        }).then(result => console.log(result))
+        }).then(result => {
+            if(result.data?.acknowledged) {
+                toast.success('Product Added successfully!')
+                reset()
+            }
+        })
     };
 
     return (

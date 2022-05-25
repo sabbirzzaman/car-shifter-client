@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './ProductsTable.css';
 
-const ProductsTable = ({ product, index }) => {
-    const { name, price, inStock, orderQuantity } = product;
+const ProductsTable = ({ product, index, deleteProduct }) => {
+    const { _id, name, price, inStock, orderQuantity } = product;
 
     return (
         <tr>
@@ -13,7 +13,7 @@ const ProductsTable = ({ product, index }) => {
             <td>${price}.00</td>
             <td>{inStock} Pice</td>
             <td>{orderQuantity} Pice</td>
-            <td><button className='remove-btn'><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button></td>
+            <td><button onClick={() => deleteProduct(_id)} className='remove-btn'><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button></td>
         </tr>
     );
 };
