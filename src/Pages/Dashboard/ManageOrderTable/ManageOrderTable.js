@@ -1,19 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './OrdersTable.css';
+import './ManageOrderTable.css'
 
-const OrdersTable = ({ order, deleteOrder }) => {
+const ManageOrderTable = ({order, handleDeleteOrder}) => {
     const { _id, productName, price, quantity, paid } = order;
 
-    console.log(paid)
-
-    const navigate = useNavigate();
+    const totalPrice = parseInt(price) * parseInt(quantity)
 
     return (
         <tr>
             <td>{productName}</td>
             <td>{quantity} Pice</td>
-            <td>${price}.00</td>
+            <td>${totalPrice}.00</td>
             <td>
                 {!paid ? (
                     <button
@@ -27,7 +24,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
                         style={{ backgroundColor: '#2ecc71' }}
                         className="status"
                     >
-                        Paid
+                        Pending
                     </button>
                 )}
             </td>
@@ -36,21 +33,11 @@ const OrdersTable = ({ order, deleteOrder }) => {
                     <>
                         <button
                             style={{
-                                backgroundColor: '#2ecc71',
-                                width: '100%',
-                            }}
-                            className="action"
-                            onClick={() => navigate(`/payment/${_id}`)}
-                        >
-                            Pay
-                        </button>
-                        <button
-                            onClick={() => deleteOrder(_id)}
-                            style={{
                                 backgroundColor: '#e74c3c',
                                 width: '100%',
                             }}
                             className="cancel"
+                            onClick={() => handleDeleteOrder(_id)}
                         >
                             Cancel
                         </button>
@@ -61,7 +48,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
                             style={{ backgroundColor: '#2ecc71' }}
                             className="status"
                         >
-                            Details
+                            Approve
                         </button>
                     </>
                 )}
@@ -70,4 +57,4 @@ const OrdersTable = ({ order, deleteOrder }) => {
     );
 };
 
-export default OrdersTable;
+export default ManageOrderTable;
