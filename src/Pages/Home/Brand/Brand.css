@@ -1,0 +1,50 @@
+.brand-section .container {
+    padding: 80px 0;
+}
+
+.brands {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 80px;
+}
+
+.brands img {
+    width: 70%;
+}
+
+.mega-sale {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.sale-1, .sale-2 {
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.sale-1:hover, .sale-2:hover {
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.sale-1 h2, .sale-1 h3, .sale-2 h2, .sale-2 h3 {
+    color: white;
+}
+
+.sale-1 p, .sale-2 p {
+    margin-bottom: 20px;
+}
+
+.sale-1 {
+    background-image: url('../../../images/banner-1.png');
+    border-radius: 10px;
+}
+
+.sale-2 {
+    background-image: url('../../../images/banner-2.png');
+}

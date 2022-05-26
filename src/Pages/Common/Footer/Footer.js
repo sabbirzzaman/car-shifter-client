@@ -1,4 +1,4 @@
-import { faEnvelope, faMap, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ const Footer = () => {
                         <h4>Contact Us</h4>
 
                         <p><FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon> contect@car-shifter.com</p>
-                        <p><FontAwesomeIcon icon={faMap}></FontAwesomeIcon> Satkhira, Bangladesh</p>
+                        <p><FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon> Satkhira, Bangladesh</p>
                         <p><FontAwesomeIcon icon={faPhone}></FontAwesomeIcon> +012 3456 789</p>
                     </div>
                 </div>
