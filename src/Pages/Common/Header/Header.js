@@ -13,7 +13,7 @@ const Header = () => {
     const [open, setOpen] = useState(false);
 
     // get user
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     // use navigate
     const navigate = useNavigate();
