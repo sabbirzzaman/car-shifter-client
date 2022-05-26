@@ -38,8 +38,9 @@ const Header = () => {
 
     const handleSignOut = () => {
         localStorage.removeItem('accessToken');
-        signOut(auth)
-    }
+        signOut(auth);
+        setProfileOpen(false);
+    };
 
     return (
         <header>
@@ -79,7 +80,12 @@ const Header = () => {
 
                         {profileOpen && (
                             <div className="profile-nav">
-                                <button className="menu-btn">Dashboard</button>
+                                <button
+                                    onClick={() => navigate('/dashboard')}
+                                    className="menu-btn"
+                                >
+                                    Dashboard
+                                </button>
                                 <button
                                     onClick={handleSignOut}
                                     className="menu-btn"
@@ -107,11 +113,14 @@ const Header = () => {
 
                             {profileOpen && (
                                 <div className="profile-nav">
-                                    <button className="menu-btn">
+                                    <button
+                                        onClick={() => navigate('/dashboard')}
+                                        className="menu-btn"
+                                    >
                                         Dashboard
                                     </button>
                                     <button
-                                        onClick={() => signOut(auth)}
+                                        onClick={handleSignOut}
                                         className="menu-btn"
                                     >
                                         Sign Out

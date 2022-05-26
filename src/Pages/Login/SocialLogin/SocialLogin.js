@@ -8,7 +8,7 @@ import useToken from '../../../hooks/useToken';
 import './SocialLogin.css';
 
 const SocialLogin = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user] = useSignInWithGoogle(auth);
 
     const navigate = useNavigate();
     const location = useLocation();

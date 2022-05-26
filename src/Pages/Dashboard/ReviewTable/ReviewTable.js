@@ -13,41 +13,12 @@ const ReviewTable = ({ order, index }) => {
             <td>${price}.00</td>
             <td>{transactionId}</td>
             <td>
-                {!paid ? (
-                    <>
-                        <button
-                            style={{
-                                backgroundColor: '#2ecc71',
-                                width: '100%',
-                            }}
-                            className="action"
-                            onClick={() => navigate(`/payment/${_id}`)}
-                        >
-                            Pay
-                        </button>
-                        <button
-                            style={{
-                                backgroundColor: '#e53f3d',
-                                width: '100%',
-                            }}
-                            className="cancel"
-                        >
-                            Cancel
-                        </button>
-                    </>
-                ) : (
-                    <>
-                        <button
-                            onClick={() =>
-                                navigate(`/dashboard/add-a-review/${_id}`)
-                            }
-                            style={{ backgroundColor: '#2ecc71' }}
-                            className="status"
-                        >
-                            Add A Review
-                        </button>
-                    </>
-                )}
+                <button
+                    onClick={() => navigate(`/dashboard/add-a-review/${_id}`)}
+                    className="status"
+                >
+                    Add A Review
+                </button>
             </td>
         </tr>
     );

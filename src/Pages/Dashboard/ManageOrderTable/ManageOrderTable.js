@@ -13,44 +13,21 @@ const ManageOrderTable = ({ order, deleteOrder, changeStatus }) => {
             <td>${totalPrice}.00</td>
             <td>
                 {!paid ? (
-                    <button
-                        style={{ backgroundColor: '#e53f3d' }}
-                        className="status"
-                    >
-                        Unpaid
-                    </button>
+                    <p>Unpaid</p>
                 ) : (
-                    <button
-                        style={{ backgroundColor: '#2ecc71' }}
-                        className="status"
-                    >
-                        {status ? 'Shipped' : 'Pending'}
-                    </button>
+                    <p>{status ? 'Shipped' : 'Pending'}</p>
                 )}
             </td>
             <td>
                 {!paid ? (
-                    <button
-                        style={{
-                            backgroundColor: '#e53f3d',
-                            width: '100%',
-                        }}
-                        className="cancel"
-                        onClick={() => deleteOrder(_id)}
-                    >
-                        Cancel
-                    </button>
+                    <button className="cancel">Cancel</button>
                 ) : (
                     <>
                         {!status ? (
-                            <button
-                                style={{ backgroundColor: '#2ecc71' }}
-                                className="status"
-                                onClick={() => changeStatus(_id)}
-                            >
-                                Approve
-                            </button>
-                        ) : 'Completed'}
+                            <button className="status">Approve</button>
+                        ) : (
+                            'Completed'
+                        )}
                     </>
                 )}
             </td>

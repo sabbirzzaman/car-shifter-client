@@ -1,0 +1,11 @@
+.blog-card {
+    padding: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.blog-card h3 {
+    margin-bottom: 10px;
+}

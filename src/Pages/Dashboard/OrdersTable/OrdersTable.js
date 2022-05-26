@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OrdersTable.css';
 
 const OrdersTable = ({ order, deleteOrder }) => {
-    const { _id, productName, price, quantity, paid, status } = order;
+    const [modal, setModal] = useState(false);
+
+    const { _id, productName, price, quantity, paid, status, transactionId } = order;
 
     const totalPrice = parseInt(price) * parseInt(quantity);
 
@@ -39,7 +41,12 @@ const OrdersTable = ({ order, deleteOrder }) => {
                     </>
                 ) : (
                     <>
-                        <button className='action'>Details</button>
+                            <button
+                                onClick={() => setModal(!modal)}
+                                className="action"
+                            >
+                                Details
+                            </button>
                     </>
                 )}
             </td>

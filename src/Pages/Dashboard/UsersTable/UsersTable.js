@@ -58,10 +58,6 @@ const UsersTable = ({ user, index, refetch }) => {
             <td>
                 {!role && (
                     <button
-                        style={{
-                            backgroundColor: '#2ecc71',
-                            width: '100%',
-                        }}
                         className="action"
                         onClick={handleMakeAdmin}
                     >

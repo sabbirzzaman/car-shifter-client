@@ -26,6 +26,7 @@ import AddProducts from './Pages/Dashboard/AddProducts/AddProducts';
 import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
 import NotFounded from './Pages/Common/NotFounded/NotFounded';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio/MyPortfolio';
+import Blog from './Pages/Blog/Blog/Blog';
 
 function App() {
     const [user, loading] = useAuthState(auth);
@@ -52,6 +53,7 @@ function App() {
                     }
                 ></Route>
                 <Route path='my-portfolio' element={<MyPortfolio />}></Route>
+                <Route path='blog' element={<Blog />}></Route>
                 <Route
                     path="dashboard"
                     element={
