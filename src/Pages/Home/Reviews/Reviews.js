@@ -6,11 +6,7 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 import './Reviews.css'
 
 const Reviews = () => {
-    const {data, isLoading} = useQuery('reviews', () => axios.get('http://localhost:5000/review', {
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }))
+    const {data, isLoading} = useQuery('reviews', () => axios.get('http://localhost:5000/review'))
 
     if(isLoading) {
         return <Loader height="60vh"></Loader>

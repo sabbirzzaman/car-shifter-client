@@ -8,8 +8,13 @@
     margin-bottom: 80px;
 }
 
-.brands img {
+.brands div {
+    text-align: center;
+}
+
+.brands div img {
     width: 70%;
+    text-align: center;
 }
 
 .mega-sale {
@@ -47,4 +52,42 @@
 
 .sale-2 {
     background-image: url('../../../images/banner-2.png');
+}
+
+/* Medium devices (landscape tablets, 689px and up) */
+@media only screen and (min-width: 689px) and (max-width: 992px) {
+    .brand-section .container {
+        padding: 60px 0;
+    }
+    
+    .brands {
+        grid-template-columns: repeat(6, 1fr);
+        margin-bottom: 60px;
+    }
+    
+    .mega-sale {
+        gap: 20px;
+    }
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .brand-section .container {
+        padding: 40px 0;
+    }
+    
+    .brands {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .mega-sale {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .sale-1, .sale-2 {
+        padding: 20px;
+    }
 }

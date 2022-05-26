@@ -15,7 +15,7 @@ const Brand = () => {
             <div className="container">
                 <div className="brands">
                     {brands.map((brand, index) => (
-                        <img key={index} src={brand} alt="Brand" />
+                        <div key={index}><img src={brand} alt="Brand" /></div>
                     ))}
                 </div>
 
