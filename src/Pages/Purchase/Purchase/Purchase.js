@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -18,44 +18,60 @@ const Purchase = () => {
         axios.get(`https://car-shifter.herokuapp.com/parts/${id}`)
     );
 
-    const { register, handleSubmit, reset } = useForm();
+    const {
+        register,
+        handleSubmit,
+        reset,
+    } = useForm();
 
     if (isLoading) {
-        return '';
+        return;
     }
 
     const { _id, name, image, description, price, orderQuantity, inStock } =
         data.data;
 
     const onSubmit = (data) => {
-        const orders = {
-            productId: _id,
-            productName: name,
-            price,
-            image,
-            ...data,
-        };
+        if (
+            parseInt(data.quantity) <= parseInt(inStock) &&
+            parseInt(data.quantity) >= parseInt(orderQuantity)
+        ) {
+            const orders = {
+                productId: _id,
+                productName: name,
+                price,
+                image,
+                ...data,
+            };
 
-        axios
-            .post('https://car-shifter.herokuapp.com/orders', orders, {
-                headers: {
-                    'content-type': 'application/json',
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                },
-            })
-            .then((result) => {
-                if (result?.data?.acknowledged) {
-                    reset();
-                    toast.success('Product Added To My Cart. For Payment please Check Out Dashboard > My Orders')
-                }
-            })
-            .catch(err => {
-                if(err.response.status === 403 || err.response.status === 401) {
-                    signOut(auth)
-                    localStorage.removeItem('accessToken')
-                    toast.error("Login Expired")
-                }
-            })
+            axios
+                .post('https://car-shifter.herokuapp.com/orders', orders, {
+                    headers: {
+                        'content-type': 'application/json',
+                        authorization: `Bearer ${localStorage.getItem(
+                            'accessToken'
+                        )}`,
+                    },
+                })
+                .then((result) => {
+                    if (result?.data?.acknowledged) {
+                        reset();
+                        toast.success(
+                            'Product Added To My Cart. For Payment please Check Out Dashboard > My Orders'
+                        );
+                    }
+                })
+                .catch((err) => {
+                    if (
+                        err.response.status === 403 ||
+                        err.response.status === 401
+                    ) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        toast.error('Login Expired');
+                    }
+                });
+        }
     };
 
     return (
