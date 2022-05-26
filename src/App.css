@@ -9,7 +9,7 @@ a {
 }
 
 a:hover {
-    color: #e74c3c;
+    color: #e53f3d;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,7 +44,7 @@ img {
 }
 
 .btn {
-    background-color: #e74c3c;
+    background-color: #e53f3d;
     border: none;
     padding: 12px 30px;
     font-size: 14px;

@@ -26,7 +26,7 @@ const Header = () => {
         return (
             <div>
                 <Link
-                    style={{ color: match ? '#e74c3c' : '' }}
+                    style={{ color: match ? '#e53f3d' : '' }}
                     to={to}
                     {...props}
                 >

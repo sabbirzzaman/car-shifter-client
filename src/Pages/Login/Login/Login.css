@@ -17,7 +17,7 @@
 
 .form-title a {
     font-weight: 600;
-    color: #e74c3c;
+    color: #e53f3d;
 }
 
 .form {
@@ -40,11 +40,11 @@
 }
 
 .required {
-    color: #e74c3c;
+    color: #e53f3d;
 }
 
 .error {
-    color: #e74c3c;
+    color: #e53f3d;
     margin-top: 5px;
 }
 

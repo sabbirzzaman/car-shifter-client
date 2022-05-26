@@ -27,7 +27,7 @@ const ReviewTable = ({ order, index }) => {
                         </button>
                         <button
                             style={{
-                                backgroundColor: '#e74c3c',
+                                backgroundColor: '#e53f3d',
                                 width: '100%',
                             }}
                             className="cancel"

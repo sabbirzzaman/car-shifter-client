@@ -14,7 +14,7 @@ const ManageOrderTable = ({ order, deleteOrder, changeStatus }) => {
             <td>
                 {!paid ? (
                     <button
-                        style={{ backgroundColor: '#e74c3c' }}
+                        style={{ backgroundColor: '#e53f3d' }}
                         className="status"
                     >
                         Unpaid
@@ -32,7 +32,7 @@ const ManageOrderTable = ({ order, deleteOrder, changeStatus }) => {
                 {!paid ? (
                     <button
                         style={{
-                            backgroundColor: '#e74c3c',
+                            backgroundColor: '#e53f3d',
                             width: '100%',
                         }}
                         className="cancel"
