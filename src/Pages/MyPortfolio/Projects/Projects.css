@@ -1,0 +1,35 @@
+.project-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 30px;
+    background-color: #f6f6f6;
+    align-items: center;
+    margin-bottom: 20px;
+    grid-auto-flow: dense;
+    border-radius: 8px;
+}
+
+.project-item img {
+    border-radius: 8px;
+}
+.project-item h3,.project-details p  {
+    margin-bottom: 10px;
+}
+
+.btn-link {
+    background-color: #e74c3c;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Oxanium', cursive;
+    padding: 15px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-link:hover {
+    background-color: #c0392b;
+    color: #fff;
+}

@@ -11,18 +11,33 @@
 }
 
 .review-title h2 {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: #fff;
-    text-align: right;
 }
 
-.reviews-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.review-slide {
+    background-color: white;
 }
 
-.reviews {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+.review-item {
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* .review-item:last-child, .review-item:nth-child(2) {
+    margin-top: 30px;
+}
+
+.review-item:first-child, .review-item:nth-child(3) {
+    margin-bottom: 30px;
+} */
+
+.review-item > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.rating {
+    display: flex;
+    gap: 10px;
 }

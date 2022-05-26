@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './OrdersTable.css';
 
 const OrdersTable = ({ order, deleteOrder }) => {
-    const { _id, productName, price, quantity, paid } = order;
+    const { _id, productName, price, quantity, paid, status } = order;
 
     const totalPrice = parseInt(price) * parseInt(quantity)
 
@@ -27,7 +27,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
                         style={{ backgroundColor: '#2ecc71' }}
                         className="status"
                     >
-                        Pending
+                        {status ? 'Shipped': 'Pending'}
                     </button>
                 )}
             </td>

@@ -50,7 +50,7 @@ const Header = () => {
 
                 <nav className={!open ? 'navigation' : 'navigation mobile-nav'}>
                     <CustomLink to="/home">Home</CustomLink>
-                    <CustomLink to="/about">About</CustomLink>
+                    <CustomLink to="/my-portfolio">My Portfolio</CustomLink>
                     <CustomLink to="/blog">Blog</CustomLink>
                     {user && <CustomLink to="/dashboard">Dashboard</CustomLink>}
 

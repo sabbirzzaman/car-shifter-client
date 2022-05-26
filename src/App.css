@@ -12,6 +12,10 @@ a:hover {
     color: #e74c3c;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: #2a2e43;
+}
+
 h1 {
     font-size: 68px;
 }
@@ -42,14 +46,13 @@ img {
 .btn {
     background-color: #e74c3c;
     border: none;
-    padding: 10px 30px;
+    padding: 12px 30px;
     border-radius: 0;
     font-size: 14px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-    line-height: 14px;
-    padding-top: 13px;
+    border-radius: 10px;
     text-transform: uppercase;
     transition: .3s ease-in-out;
 }

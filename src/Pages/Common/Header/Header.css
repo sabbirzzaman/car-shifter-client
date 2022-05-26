@@ -1,11 +1,10 @@
 header {
     position: relative;
-    background-color: #fff;
+    background-color: #f9fdfd;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 header .container {
-    background-color: #fff;
     height: 80px;
     display: flex;
     justify-content: space-between;

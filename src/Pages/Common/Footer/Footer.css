@@ -1,6 +1,40 @@
 .footer {
-    background-color: #161616;
     color: #fff;
+}
+
+.footer-top {
+    background-color: #161616;
+    padding: 40px 0;
+}
+
+.footer-top .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.col-2 a {
+    color: #fff;
+}
+
+.col-2 a:hover {
+    color: #c0392b;
+}
+
+.col-3 p {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer-bottom {
+    background-color: #000;
     padding: 30px 0;
     text-align: center;
 }
