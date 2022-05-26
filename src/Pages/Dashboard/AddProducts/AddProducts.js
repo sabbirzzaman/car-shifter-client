@@ -7,18 +7,56 @@ import './AddProducts.css';
 const AddProducts = () => {
     const { register, handleSubmit, reset } = useForm();
 
-    const onSubmit = (data) => {
-        axios.post('http://localhost:5000/part', data, {
-            headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        }).then(result => {
-            if(result.data?.acknowledged) {
-                toast.success('Product Added successfully!')
-                reset()
-            }
-        })
+    const onSubmit = ({
+        name,
+        image,
+        description,
+        price,
+        inStock,
+        orderQuantity,
+    }) => {
+        const img = image[0];
+        const formData = new FormData();
+        formData.append('image', img);
+
+        const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMG_STORAGE_KEY}`;
+
+        axios
+            .post(url, formData, {
+                headers: {
+                    'content-type': 'application/json',
+                },
+            })
+            .then((result) => {
+                if (result.data.success) {
+                    const image = result.data.data.url;
+
+                    const product = {
+                        name,
+                        image,
+                        description,
+                        price,
+                        inStock,
+                        orderQuantity,
+                    };
+
+                    axios
+                        .post('http://localhost:5000/part', product, {
+                            headers: {
+                                'content-type': 'application/json',
+                                authorization: `Bearer ${localStorage.getItem(
+                                    'accessToken'
+                                )}`,
+                            },
+                        })
+                        .then((result) => {
+                            if (result.data?.acknowledged) {
+                                toast.success('Product Added successfully!');
+                                reset();
+                            }
+                        });
+                }
+            });
     };
 
     return (
