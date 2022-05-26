@@ -5,7 +5,7 @@ import './OrdersTable.css';
 const OrdersTable = ({ order, deleteOrder }) => {
     const { _id, productName, price, quantity, paid, status } = order;
 
-    const totalPrice = parseInt(price) * parseInt(quantity)
+    const totalPrice = parseInt(price) * parseInt(quantity);
 
     const navigate = useNavigate();
 
@@ -16,29 +16,15 @@ const OrdersTable = ({ order, deleteOrder }) => {
             <td>${totalPrice}.00</td>
             <td>
                 {!paid ? (
-                    <button
-                        style={{ backgroundColor: '#e53f3d' }}
-                        className="status"
-                    >
-                        Unpaid
-                    </button>
+                    <p>Unpaid</p>
                 ) : (
-                    <button
-                        style={{ backgroundColor: '#2ecc71' }}
-                        className="status"
-                    >
-                        {status ? 'Shipped': 'Pending'}
-                    </button>
+                    <p>{status ? 'Shipped' : 'Pending'}</p>
                 )}
             </td>
             <td>
                 {!paid ? (
                     <>
                         <button
-                            style={{
-                                backgroundColor: '#2ecc71',
-                                width: '100%',
-                            }}
                             className="action"
                             onClick={() => navigate(`/payment/${_id}`)}
                         >
@@ -46,10 +32,6 @@ const OrdersTable = ({ order, deleteOrder }) => {
                         </button>
                         <button
                             onClick={() => deleteOrder(_id)}
-                            style={{
-                                backgroundColor: '#e53f3d',
-                                width: '100%',
-                            }}
                             className="cancel"
                         >
                             Cancel
@@ -57,12 +39,7 @@ const OrdersTable = ({ order, deleteOrder }) => {
                     </>
                 ) : (
                     <>
-                        <button
-                            style={{ backgroundColor: '#2ecc71' }}
-                            className="status"
-                        >
-                            Details
-                        </button>
+                        <button className='action'>Details</button>
                     </>
                 )}
             </td>

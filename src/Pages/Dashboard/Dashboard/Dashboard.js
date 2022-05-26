@@ -90,7 +90,9 @@ const Dashboard = () => {
                 </div>
 
                 <div className="dashboard-content">
+                    <div className="dashboard-table">
                     <Outlet></Outlet>
+                    </div>
                 </div>
             </div>
         </section>
