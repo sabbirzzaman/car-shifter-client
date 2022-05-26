@@ -71,3 +71,44 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .portfolio-section .container {
+        padding: 40px 0;
+    }
+    
+    .portfolio-info {
+        margin-bottom: 40px;
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .portfolio-info img {
+        width: 200px;
+    }
+
+    .portfolio-mail {
+        justify-content: center
+    }
+    
+    .portfolio-skills h3,
+    .portfolio-projects > h3,
+    .portfolio-education > h3 {
+        margin-bottom: 10px;
+    }
+    
+    .my-skill {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .portfolio-projects {
+        margin-bottom: 40px;
+    }
+    
+    .education {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

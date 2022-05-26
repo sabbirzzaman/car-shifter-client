@@ -24,7 +24,8 @@
     text-transform: uppercase;
     font-size: 14px;
     font-family: 'Oxanium', cursive;
-    padding: 15px;
+    padding: 13px 30px ;
+    border-radius: 10px;
     display: inline-block;
     margin-top: 10px;
 }
@@ -32,4 +33,18 @@
 .btn-link:hover {
     background-color: #c0392b;
     color: #fff;
+}
+
+/* Extra small devices (phones, 688px and down) */
+@media only screen and (max-width: 688px) {
+    .project-item {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .project-item:nth-child(2) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
