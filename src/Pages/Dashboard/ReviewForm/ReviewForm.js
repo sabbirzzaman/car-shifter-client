@@ -21,10 +21,13 @@ const ReviewForm = () => {
         return <Loader height="50vh"></Loader>;
     }
 
-    const { transactionId ,productId, productName, email } = data.data;
+    const { transactionId ,productId, productName, email, name } = data.data;
+
+    console.log(data.data)
 
     const onSubmit = (data) => {
         const review = {
+            name,
             productId,
             transactionId,
             productName,

@@ -1,67 +1,22 @@
+import axios from 'axios';
 import React from 'react';
+import { useQuery } from 'react-query';
+import Loader from '../../Common/Loader/Loader';
 import ReviewItem from '../ReviewItem/ReviewItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import './Reviews.css'
 
 const Reviews = () => {
-    const reviews = [
-        {
-            id: 1,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 2,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 3,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 4,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 5,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 6,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 7,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-        {
-            id: 8,
-            name: 'john Doe',
-            message:
-                'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quod ipsum ab in error facilis vel iure fuga',
-            rating: 5,
-        },
-    ];
+    const {data, isLoading} = useQuery('reviews', () => axios.get('http://localhost:5000/review', {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }))
+
+    if(isLoading) {
+        return <Loader height="60vh"></Loader>
+    }
+
+    const reviewLimit = data.data.slice(0, 6)
 
     return (
         <section className="review-section">
@@ -73,7 +28,9 @@ const Reviews = () => {
 
                     <div className="reviews-container">
                         <div className="reviews">
-                            
+                            {
+                                reviewLimit.map(review => <ReviewItem key={review._id} review={review}></ReviewItem>)
+                            }
                         </div>
                     </div>
                 </div>

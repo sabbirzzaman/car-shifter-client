@@ -7,6 +7,10 @@
     color: white;
 }
 
+.hero-section h1 {
+    color: white;
+}
+
 .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;

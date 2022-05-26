@@ -5,4 +5,10 @@
     padding: 20px;
     border-radius: 50px;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.summary svg:hover {
+    background-color: #f03952;
 }
