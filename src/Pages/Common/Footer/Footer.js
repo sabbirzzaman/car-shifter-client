@@ -24,9 +24,9 @@ const Footer = () => {
                         <h4>Useful Links</h4>
 
                         <Link to={'/'}>Home</Link>
-                        <Link to={'/'}>Portfolio</Link>
-                        <Link to={'/'}>Dashboard</Link>
-                        <Link to={'/'}>Products</Link>
+                        <Link to={'/my-portfolio'}>Portfolio</Link>
+                        <Link to={'/blog'}>Blog</Link>
+                        <Link to={'/dashboard'}>Dashboard</Link>
                     </div>
 
                     <div className="column col-3">

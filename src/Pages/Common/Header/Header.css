@@ -47,15 +47,17 @@ nav {
     padding: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     display: flex;
+    border-radius: 10px;
     flex-direction: column;
     gap: 10px;
     width: 250px;
 }
 
 .profile-nav button {
-    background-color: #f6f6f6;
+    background-color: #fff;
     padding: 8px 0;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
     transition: .3s ease-in-out;
 }
