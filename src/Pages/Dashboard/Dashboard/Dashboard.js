@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useMatch, useResolvedPath } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import useAdmin from '../../../hooks/useAdmin';
 import './Dashboard.css';
@@ -17,13 +17,31 @@ const Dashboard = () => {
 
     const [admin] = useAdmin(user);
 
+    // active route
+    function CustomLink({ children, to, ...props }) {
+        let resolved = useResolvedPath(to);
+        let match = useMatch({ path: resolved.pathname, end: true });
+
+        return (
+            <div>
+                <Link
+                    style={{ backgroundColor: match ? '#e74c3c' : '', color: match ? '#fff' : '' }}
+                    to={to}
+                    {...props}
+                >
+                    {children}
+                </Link>
+            </div>
+        );
+    }
+
     return (
         <section className="dashboard-section">
             <div className="container">
                 <div className="dashboard-menu">
                     {!admin && (
                         <>
-                            <Link
+                            <CustomLink
                                 to="/dashboard/my-orders"
                                 className="btn-dashboard"
                             >
@@ -31,8 +49,8 @@ const Dashboard = () => {
                                     icon={faCartShopping}
                                 ></FontAwesomeIcon>
                                 My Orders
-                            </Link>
-                            <Link
+                            </CustomLink>
+                            <CustomLink
                                 to="/dashboard/add-a-review"
                                 className="btn-dashboard"
                             >
@@ -40,16 +58,16 @@ const Dashboard = () => {
                                     icon={faStar}
                                 ></FontAwesomeIcon>{' '}
                                 Add A Review
-                            </Link>
+                            </CustomLink>
                         </>
                     )}
-                    <Link to="/dashboard/my-profile" className="btn-dashboard">
+                    <CustomLink to="/dashboard/my-profile" className="btn-dashboard">
                         <FontAwesomeIcon icon={faUser}></FontAwesomeIcon> My
                         Profile
-                    </Link>
+                    </CustomLink>
                     {admin && (
                         <>
-                            <Link
+                            <CustomLink
                                 to="/dashboard/manage-users"
                                 className="btn-dashboard"
                             >
@@ -57,8 +75,8 @@ const Dashboard = () => {
                                     icon={faUsers}
                                 ></FontAwesomeIcon>
                                 Manage Users
-                            </Link>
-                            <Link
+                            </CustomLink>
+                            <CustomLink
                                 to="/dashboard/manage-orders"
                                 className="btn-dashboard"
                             >
@@ -66,8 +84,8 @@ const Dashboard = () => {
                                     icon={faUsers}
                                 ></FontAwesomeIcon>
                                 Manage Orders
-                            </Link>
-                            <Link
+                            </CustomLink>
+                            <CustomLink
                                 to="/dashboard/add-products"
                                 className="btn-dashboard"
                             >
@@ -75,8 +93,8 @@ const Dashboard = () => {
                                     icon={faUsers}
                                 ></FontAwesomeIcon>
                                 Add Products
-                            </Link>
-                            <Link
+                            </CustomLink>
+                            <CustomLink
                                 to="/dashboard/manage-products"
                                 className="btn-dashboard"
                             >
@@ -84,7 +102,7 @@ const Dashboard = () => {
                                     icon={faUsers}
                                 ></FontAwesomeIcon>
                                 Manage Products
-                            </Link>
+                            </CustomLink>
                         </>
                     )}
                 </div>

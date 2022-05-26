@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './ReviewTable.css';
 
 const ReviewTable = ({ order, index }) => {
-    const { _id, productName, price, transactionId, paid } = order;
+    const { _id, productName, price, transactionId } = order;
     const navigate = useNavigate();
 
     return (
