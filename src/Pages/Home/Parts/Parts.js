@@ -5,13 +5,21 @@ import PartItem from '../PartItem/PartItem';
 import './Parts.css';
 
 const Parts = () => {
-    const {data: products, isLoading} = useQuery('products',() => axios.get('http://localhost:5000/parts'));
-    
-    if(isLoading) {
-        return ''
+    const { data, isLoading } = useQuery('products', () =>
+        axios.get('http://localhost:5000/parts')
+    );
+
+    if (isLoading) {
+        return '';
     }
-    
-    const productsLimit = products.data.slice(0, 6);
+
+    const products = data.data;
+
+    // reversed data
+    const reversedData = [...products].reverse();
+
+    // get limited data
+    const productsLimit = reversedData.slice(0, 6);
 
     return (
         <section className="parts-section">
@@ -19,9 +27,12 @@ const Parts = () => {
                 <h2>Our products</h2>
 
                 <div className="products">
-                    {
-                        productsLimit.map(product => <PartItem key={product._id} product={product}></PartItem>)
-                    }
+                    {productsLimit.map((product) => (
+                        <PartItem
+                            key={product._id}
+                            product={product}
+                        ></PartItem>
+                    ))}
                 </div>
             </div>
         </section>

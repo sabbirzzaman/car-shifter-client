@@ -16,7 +16,13 @@ const Reviews = () => {
         return <Loader height="60vh"></Loader>
     }
 
-    const reviewLimit = data.data.slice(0, 6)
+    const reviews = data.data;
+
+    // reversed data
+    const reversedData = [...reviews].reverse();
+
+    // get limited data
+    const reviewLimit = reversedData.slice(0, 6)
 
     return (
         <section className="review-section">

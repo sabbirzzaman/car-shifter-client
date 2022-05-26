@@ -42,7 +42,7 @@ const ReviewForm = () => {
             })
             .then((result) => {
                 if (result?.data?.acknowledged) {
-                    
+                    reset()
                     navigate('/dashboard/add-a-review')
                     toast.success('Review Added Successfully');
                 }
