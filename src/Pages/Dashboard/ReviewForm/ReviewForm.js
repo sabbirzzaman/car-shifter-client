@@ -12,7 +12,7 @@ const ReviewForm = () => {
     const navigate = useNavigate();
 
     const { data, isLoading } = useQuery('order', () =>
-        axios.get(`http://localhost:5000/orders/${id}`)
+        axios.get(`https://car-shifter.herokuapp.com/orders/${id}`)
     );
 
     const { register, handleSubmit, reset } = useForm();
@@ -35,7 +35,7 @@ const ReviewForm = () => {
             ...data,
         };
 
-        axios.post('http://localhost:5000/reviews', review, {
+        axios.post('https://car-shifter.herokuapp.com/reviews', review, {
                 headers: {
                     'content-type': 'application/json',
                 },

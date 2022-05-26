@@ -11,7 +11,7 @@ const useToken = (user) => {
         if (email) {
             const user = { email, name };
 
-            axios.put(`http://localhost:5000/users/${email}`, user, {
+            axios.put(`https://car-shifter.herokuapp.com/users/${email}`, user, {
                     headers: {
                         'content-type': 'application/json',
                     },

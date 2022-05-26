@@ -15,7 +15,7 @@ const MyProfile = () => {
 
     // get user orders data
     const { data: users, isLoading } = useQuery('user', () =>
-        axios.get(`http://localhost:5000/user/${user?.email}`, {
+        axios.get(`https://car-shifter.herokuapp.com/user/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },
@@ -30,7 +30,7 @@ const MyProfile = () => {
 
     const onSubmit = (data) => {
         axios
-            .put(`http://localhost:5000/users/${email}`, data, {
+            .put(`https://car-shifter.herokuapp.com/users/${email}`, data, {
                 headers: {
                     'content-type': 'application/json',
                 },

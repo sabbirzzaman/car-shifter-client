@@ -8,7 +8,7 @@ import './ManageProducts.css';
 
 const ManageProducts = () => {
     const { data: products, isLoading, refetch } = useQuery('products', () =>
-        axios.get('http://localhost:5000/parts')
+        axios.get('https://car-shifter.herokuapp.com/parts')
     );
 
     if (isLoading) {
@@ -23,7 +23,7 @@ const ManageProducts = () => {
                 {
                     label: 'Yes',
                     onClick: () => {
-                        axios.delete(`http://localhost:5000/part/${id}`)
+                        axios.delete(`https://car-shifter.herokuapp.com/part/${id}`)
                         .then(data => {
                             if(data.data?.acknowledged) {
                                 toast.success('Product deleted successfully!')

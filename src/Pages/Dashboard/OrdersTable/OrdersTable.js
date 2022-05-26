@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import './OrdersTable.css';
 
 const OrdersTable = ({ order, deleteOrder }) => {
-    const [modal, setModal] = useState(false);
-
-    const { _id, productName, price, quantity, paid, status, transactionId } = order;
+    const { _id, productName, price, quantity, paid, status, transactionId } =
+        order;
 
     const totalPrice = parseInt(price) * parseInt(quantity);
+
+    const handleToast = () => {
+        toast((t) => (
+            <span className='transaction-id'>
+                <p>{transactionId}</p>
+                <button className='remove-btn' onClick={() => toast.dismiss(t.id)}>X</button>
+            </span>
+        ), {
+            duration: 10000,
+          });
+    };
 
     const navigate = useNavigate();
 
@@ -41,12 +52,9 @@ const OrdersTable = ({ order, deleteOrder }) => {
                     </>
                 ) : (
                     <>
-                            <button
-                                onClick={() => setModal(!modal)}
-                                className="action"
-                            >
-                                Details
-                            </button>
+                        <button onClick={handleToast} className="action">
+                            Details
+                        </button>
                     </>
                 )}
             </td>

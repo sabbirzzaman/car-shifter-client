@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 const ManageOrders = () => {
     // get orders data
     const { data, isLoading, refetch } = useQuery('allOrders', () =>
-        axios.get('http://localhost:5000/order', {
+        axios.get('https://car-shifter.herokuapp.com/order', {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },
@@ -34,7 +34,7 @@ const ManageOrders = () => {
                     label: 'Yes',
                     onClick: () => {
                         axios
-                            .delete(`http://localhost:5000/order?id=${id}`)
+                            .delete(`https://car-shifter.herokuapp.com/order?id=${id}`)
                             .then((data) => {
                                 if (data?.data?.deletedCount > 0) {
                                     refetch();
@@ -65,7 +65,7 @@ const ManageOrders = () => {
                         const status = { status: 'shipped' };
                         axios
                             .patch(
-                                `http://localhost:5000/order/${id}`,
+                                `https://car-shifter.herokuapp.com/order/${id}`,
                                 status,
                                 {
                                     headers: {

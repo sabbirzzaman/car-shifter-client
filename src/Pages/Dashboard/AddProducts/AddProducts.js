@@ -41,7 +41,7 @@ const AddProducts = () => {
                     };
 
                     axios
-                        .post('http://localhost:5000/part', product, {
+                        .post('https://car-shifter.herokuapp.com/part', product, {
                             headers: {
                                 'content-type': 'application/json',
                                 authorization: `Bearer ${localStorage.getItem(

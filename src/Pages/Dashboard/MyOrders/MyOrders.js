@@ -19,7 +19,7 @@ const MyOrders = () => {
     const { data, isLoading, error, refetch } = useQuery(
         ['orders', email],
         () =>
-            axios.get(`http://localhost:5000/orders?email=${email}`, {
+            axios.get(`https://car-shifter.herokuapp.com/orders?email=${email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem(
                         'accessToken'
@@ -51,7 +51,7 @@ const MyOrders = () => {
                     label: 'Yes',
                     onClick: () => {
                         axios
-                            .delete(`http://localhost:5000/order?id=${id}`)
+                            .delete(`https://car-shifter.herokuapp.com/order?id=${id}`)
                             .then((data) => {
                                 if (data?.data?.deletedCount > 0) {
                                     refetch();

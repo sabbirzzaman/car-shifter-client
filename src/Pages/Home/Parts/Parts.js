@@ -6,7 +6,7 @@ import './Parts.css';
 
 const Parts = () => {
     const { data, isLoading } = useQuery('products', () =>
-        axios.get('http://localhost:5000/parts')
+        axios.get('https://car-shifter.herokuapp.com/parts')
     );
 
     if (isLoading) {

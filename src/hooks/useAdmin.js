@@ -8,7 +8,7 @@ const useAdmin = (user) => {
 
     // get user orders data
     const { data: users } = useQuery(['user', user], () =>
-        axios.get(`http://localhost:5000/user/${user?.email}`, {
+        axios.get(`https://car-shifter.herokuapp.com/user/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },

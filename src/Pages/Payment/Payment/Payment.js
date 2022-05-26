@@ -16,7 +16,7 @@ const Payment = () => {
 
     // get product data
     const { data, isLoading } = useQuery('order', () =>
-        axios.get(`http://localhost:5000/orders/${id}`)
+        axios.get(`https://car-shifter.herokuapp.com/orders/${id}`)
     );
 
     if (isLoading) {

@@ -12,7 +12,7 @@ const ManageUsers = () => {
         isLoading,
         refetch,
     } = useQuery('orders', () =>
-        axios.get(`http://localhost:5000/users`, {
+        axios.get(`https://car-shifter.herokuapp.com/users`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },

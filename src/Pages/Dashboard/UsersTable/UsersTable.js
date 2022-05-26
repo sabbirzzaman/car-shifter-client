@@ -17,7 +17,7 @@ const UsersTable = ({ user, index, refetch }) => {
                     onClick: () => {
                         axios
                             .put(
-                                `http://localhost:5000/users/admin/${email}`,
+                                `https://car-shifter.herokuapp.com/users/admin/${email}`,
                                 {},
                                 {
                                     headers: {

@@ -63,3 +63,9 @@ tbody td:last-child {
     background-color: #2a2e43;
     color: #fff;
 }
+
+.transaction-id {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

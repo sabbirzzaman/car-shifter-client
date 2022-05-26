@@ -18,7 +18,7 @@ const CheckoutForm = ({ price, order }) => {
     useEffect(() => {
         axios
             .post(
-                'http://localhost:5000/create-payment-intent',
+                'https://car-shifter.herokuapp.com/create-payment-intent',
                 { price },
                 {
                     headers: {
@@ -74,7 +74,7 @@ const CheckoutForm = ({ price, order }) => {
             };
 
             axios
-                .patch(`http://localhost:5000/orders/${_id}`, payment, {
+                .patch(`https://car-shifter.herokuapp.com/orders/${_id}`, payment, {
                     headers: {
                         'content-type': 'application/json',
                     },

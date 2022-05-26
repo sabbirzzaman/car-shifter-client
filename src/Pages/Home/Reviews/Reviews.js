@@ -6,7 +6,7 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 import './Reviews.css'
 
 const Reviews = () => {
-    const {data, isLoading} = useQuery('reviews', () => axios.get('http://localhost:5000/review'))
+    const {data, isLoading} = useQuery('reviews', () => axios.get('https://car-shifter.herokuapp.com/review'))
 
     if(isLoading) {
         return <Loader height="60vh"></Loader>

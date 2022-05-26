@@ -15,7 +15,7 @@ const Purchase = () => {
     const [{ email, displayName }] = useAuthState(auth);
 
     const { data, isLoading } = useQuery('part', () =>
-        axios.get(`http://localhost:5000/parts/${id}`)
+        axios.get(`https://car-shifter.herokuapp.com/parts/${id}`)
     );
 
     const { register, handleSubmit, reset } = useForm();
@@ -37,7 +37,7 @@ const Purchase = () => {
         };
 
         axios
-            .post('http://localhost:5000/orders', orders, {
+            .post('https://car-shifter.herokuapp.com/orders', orders, {
                 headers: {
                     'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
