@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import useToken from '../../../hooks/useToken';
+import Loader from '../../Common/Loader/Loader';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
@@ -14,25 +16,44 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    // get react hook form
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
 
+    // login
     const onSubmit = ({ email, password }) => {
         signInWithEmailAndPassword(email, password);
     };
 
     const from = location.state?.from?.pathname || '/';
 
+    // get Token
     const [token] = useToken(user);
 
+    // redirect when login
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
         }
     }, [token, from, navigate]);
+
+    // handle firebase authentication error
+    if (error) {
+        error?.code === 'auth/user-not-found' &&
+            toast.error('Account does not exist');
+
+
+        error?.code === 'auth/wrong-password' &&
+            toast.error('Password incorrect.');
+    }
+
+    // login loading
+    if(loading) {
+        return <Loader></Loader>
+    }
 
     return (
         <section className="form-section">
@@ -81,18 +102,11 @@ const Login = () => {
                                 type="password"
                                 {...register('password', {
                                     required: true,
-                                    minLength: {
-                                        value: 6,
-                                    },
                                 })}
                             />
                             <p className="error">
                                 {errors.password?.type === 'required' &&
                                     'Password is required'}
-                            </p>
-                            <p className="error">
-                                {errors.password?.type === 'minLength' &&
-                                    'Must be 6 character or longer'}
                             </p>
                         </div>
 

@@ -4,9 +4,11 @@ import {
     useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import useToken from '../../../hooks/useToken';
+import Loader from '../../Common/Loader/Loader';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Register.css';
 
@@ -27,6 +29,7 @@ const Register = () => {
         handleSubmit,
     } = useForm();
 
+    // register
     const onSubmit = async ({ name, email, password }) => {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
@@ -34,13 +37,26 @@ const Register = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    // get Token
     const [token] = useToken(user);
 
+    // redirect when register
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
         }
     }, [token, from, navigate]);
+
+    // register error
+    if (error) {
+        error?.code === 'auth/email-already-in-use' &&
+            toast.error('User account already exists!');
+    }
+
+    // register loading
+    if(loading) {
+        return <Loader></Loader>
+    }
 
     return (
         <section className="form-section">
