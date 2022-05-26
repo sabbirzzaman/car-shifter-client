@@ -1,17 +1,27 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import './ForgetPassword.css'
+import toast from 'react-hot-toast';
 
 const ForgetPassword = () => {
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+        auth
+      );
+
     const {
         register,
         formState: { errors },
         handleSubmit,
+        reset
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async ({email}) => {
+        await sendPasswordResetEmail(email);
+        toast.success('Password reset link send to your email!');
+        reset();
     };
 
     return (

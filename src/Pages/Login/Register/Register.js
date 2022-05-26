@@ -18,7 +18,7 @@ const Register = () => {
             sendEmailVerification: true,
         });
 
-    const [updateProfile, updating] = useUpdateProfile(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
     const location = useLocation();
     const navigate = useNavigate();
