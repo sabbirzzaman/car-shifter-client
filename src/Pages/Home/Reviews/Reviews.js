@@ -26,7 +26,6 @@ const Reviews = () => {
 
     return (
         <section className="review-section">
-            <div className="overlay">
                 <div className="container">
                     <div className="review-title">
                         <h2>Clients Review</h2>
@@ -40,7 +39,6 @@ const Reviews = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     );
 };
