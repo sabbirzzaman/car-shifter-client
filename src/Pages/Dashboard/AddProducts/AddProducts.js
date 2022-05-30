@@ -1,11 +1,13 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import './AddProducts.css';
 
 const AddProducts = () => {
     const { register, handleSubmit, reset } = useForm();
+
+    const [imgName, setImgName] = useState('');
 
     const onSubmit = ({
         name,
@@ -15,6 +17,7 @@ const AddProducts = () => {
         inStock,
         orderQuantity,
     }) => {
+        // img file content
         const img = image[0];
         const formData = new FormData();
         formData.append('image', img);

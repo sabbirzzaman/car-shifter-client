@@ -22,6 +22,14 @@
     padding: 20px 30px;
 }
 
+.info:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.info:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
 .info h5, .info h3 {
     color: white;
 }

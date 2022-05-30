@@ -101,6 +101,7 @@ const Purchase = () => {
                         {description}
                     </div>
                 </div>
+                
                 <div className="form-container">
                     <h3>Order Information</h3>
                     <form className="form" onSubmit={handleSubmit(onSubmit)}>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loader from '../../Common/Loader/Loader';
 import PartItem from '../PartItem/PartItem';
 import './Parts.css';
 
@@ -10,7 +11,7 @@ const Parts = () => {
     );
 
     if (isLoading) {
-        return '';
+        return <Loader height="50vh" />;
     }
 
     const products = data.data;

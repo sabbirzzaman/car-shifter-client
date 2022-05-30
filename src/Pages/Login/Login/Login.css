@@ -8,6 +8,7 @@
     margin-left: 80px;
     background-color: #fff;
     padding: 40px;
+    border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -29,9 +30,14 @@
 .field-group input:not(input[type='submit']) {
     width: 100%;
     padding: 10px 15px;
-    border: 2px solid #f0f7ff;
-    background-color: #f9fcffb0;
+    border: none;
+    border-bottom: 2px solid #f0f7ff;
     border-radius: 0;
+    outline: none;
+}
+
+.field-group input:focus {
+    box-shadow: 0 1px 0 0 #e53f3d;
 }
 
 .field-group label {
