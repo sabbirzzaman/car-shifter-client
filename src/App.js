@@ -31,7 +31,6 @@ import Blog from './Pages/Blog/Blog/Blog';
 function App() {
     const [user, loading] = useAuthState(auth);
 
-
     const [admin] = useAdmin(user);
     
     if (loading) {
