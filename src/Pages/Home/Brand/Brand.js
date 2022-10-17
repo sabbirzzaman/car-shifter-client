@@ -35,7 +35,7 @@ const Brand = () => {
                             </div>
 
                             <h5>Choose Parts</h5>
-                            <p>Choose the parts you need to buy</p>
+                            <p>Choose parts you need to buy</p>
 
                             <div className="icon-divider"></div>
                         </div>
@@ -44,8 +44,8 @@ const Brand = () => {
                                 <FontAwesomeIcon icon={faLocationDot} />
                             </div>
 
-                            <h5>Enter Your Address</h5>
-                            <p>Give your address and part quantity</p>
+                            <h5>Give Your Address</h5>
+                            <p>Enter your details and quantity</p>
                         </div>
                         <div className="work-icon">
                             <div className="icon">

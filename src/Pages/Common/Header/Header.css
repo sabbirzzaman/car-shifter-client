@@ -67,10 +67,18 @@ nav {
     color: #fff;
 }
 
-.profile-inner {
+.user-menu {
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.user-menu:hover {
+    background-color: rgba(139, 121, 240, 0.25);
 }
 
 .profile-inner h5 {

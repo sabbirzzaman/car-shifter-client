@@ -81,7 +81,8 @@ input::placeholder, textarea::placeholder {
     }
 
     h1 {
-        font-size: 48px;
+        font-size: 44px;
+        line-height: 50px;
     }
     
     h2 {
@@ -104,6 +105,7 @@ input::placeholder, textarea::placeholder {
 
     h1 {
         font-size: 32px;
+        line-height: 40px;
     }
     
     h2 {

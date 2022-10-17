@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import User from './User';
 import userAvatar from '../../../images/user.png';
 import './Header.css';
 
@@ -36,6 +37,7 @@ const Header = () => {
         );
     }
 
+    // sign out handler
     const handleSignOut = () => {
         localStorage.removeItem('accessToken');
         signOut(auth);
@@ -69,13 +71,12 @@ const Header = () => {
 
                 {user && (
                     <div className="profile hide-mobile">
-                        <div className="profile-inner">
+                        <div
+                            className="user-menu"
+                            onClick={() => setProfileOpen(!profileOpen)}
+                        >
                             <h5>{user.displayName}</h5>
-                            <img
-                                onClick={() => setProfileOpen(!profileOpen)}
-                                src={userAvatar}
-                                alt="User"
-                            />
+                            <img src={userAvatar} alt="User" />
                         </div>
 
                         {profileOpen && (

@@ -45,11 +45,22 @@
         max-width: 300px;
     }
 
-    .hero-section .container p {
-        display: none;
+    .hero-section {
+        height: calc(85vh - 80px);
+        background-color: #f8f7fb;
+        width: 100%;
+    }
+
+    .hero-section .container {
+        background-size: 110%;
     }
 
     .hero-section .container h1 {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
+
+    .hero-section .container p {
+        font-size: 14px;
+    }
+
 }
