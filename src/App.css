@@ -9,15 +9,20 @@ a {
 }
 
 a:hover {
-    color: #e74c3c;
+    color: #8a79f0;
 }
 
 h1, h2, h3, h4, h5, h6 {
+    text-transform: capitalize;
     color: #2a2e43;
 }
 
 h1 {
-    font-size: 68px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 68px;
+    
+    margin-bottom: 10px;
 }
 
 h2 {
@@ -44,7 +49,8 @@ img {
 }
 
 .btn {
-    background-color: #e74c3c;
+    background-color: #8a79f0;
+    display: inline-block;
     border: none;
     padding: 12px 30px;
     font-size: 14px;
@@ -52,12 +58,12 @@ img {
     color: #fff;
     cursor: pointer;
     border-radius: 10px;
-    text-transform: uppercase;
     transition: .3s ease-in-out;
 }
 
 .btn:hover {
-    background-color: #c0392b;
+    color: #fff;
+    background-color: #7765dd;
 }
 
 .react-confirm-alert-body h1 {

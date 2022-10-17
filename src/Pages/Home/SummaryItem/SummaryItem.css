@@ -10,5 +10,6 @@
 }
 
 .summary svg:hover {
-    background-color: #f03952;
+    color: #ffffff;
+    background-color: #8a79f0;
 }

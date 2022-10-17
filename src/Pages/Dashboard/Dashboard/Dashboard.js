@@ -25,7 +25,7 @@ const Dashboard = () => {
         return (
             <div>
                 <Link
-                    style={{ backgroundColor: match ? '#e74c3c' : '', color: match ? '#fff' : '' }}
+                    style={{ backgroundColor: match ? '#8a79f0' : '', color: match ? '#fff' : '' }}
                     to={to}
                     {...props}
                 >

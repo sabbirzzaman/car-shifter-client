@@ -1,7 +1,6 @@
 header {
     position: relative;
-    background-color: #fff;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: #f8f7fb;
 }
 
 header .container {
@@ -13,12 +12,13 @@ header .container {
 
 nav {
     display: flex;
-    gap: 30px;
-    font-weight: 600;
+    gap: 20px;
+    font-weight: 500;
     align-items: center;
 }
 
 .site-logo {
+    font-size: 24px;
     z-index: 10;
     cursor: pointer;
 }
@@ -75,6 +75,13 @@ nav {
 
 .profile-inner h5 {
     margin-top: 4px;
+}
+
+.header-divider {
+    width: 3px;
+    height: 25px;
+    background-color: #000;
+    border-radius: 3px;
 }
 
 .hide-desktop {

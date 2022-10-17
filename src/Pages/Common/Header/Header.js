@@ -26,7 +26,7 @@ const Header = () => {
         return (
             <div>
                 <Link
-                    style={{ color: match ? '#e53f3d' : '' }}
+                    style={{ color: match ? '#8a79f0' : '' }}
                     to={to}
                     {...props}
                 >
@@ -55,15 +55,15 @@ const Header = () => {
                     <CustomLink to="/blog">Blog</CustomLink>
                     {user && <CustomLink to="/dashboard">Dashboard</CustomLink>}
 
+                    <div className="header-divider"></div>
+
                     {!user && (
-                        <>
-                            <button
-                                onClick={() => navigate('/login')}
-                                className="btn"
-                            >
-                                Login
-                            </button>
-                        </>
+                        <button
+                            onClick={() => navigate('/login')}
+                            className="btn login-btn"
+                        >
+                            Login
+                        </button>
                     )}
                 </nav>
 

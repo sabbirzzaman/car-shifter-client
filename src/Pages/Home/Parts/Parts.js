@@ -23,9 +23,9 @@ const Parts = () => {
     const productsLimit = reversedData.slice(0, 6);
 
     return (
-        <section className="parts-section">
+        <section id='parts' className="parts-section">
             <div className="container">
-                <h2>Our products</h2>
+                <h2>All Our Parts</h2>
 
                 <div className="products">
                     {productsLimit.map((product) => (
