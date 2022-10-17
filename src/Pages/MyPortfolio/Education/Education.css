@@ -1,7 +1,8 @@
 .edu-card {
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     border-radius: 8px;
     padding: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .edu-card h3 {

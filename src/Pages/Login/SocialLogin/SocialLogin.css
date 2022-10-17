@@ -6,12 +6,12 @@
 }
 
 .social-btn {
-    background-color: #e53f3d;
+    background-color: #8a79f0;
     color: #fff;
     transition: .3s ease-in-out;
     width: 60px;
     height: 30px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     display: flex;

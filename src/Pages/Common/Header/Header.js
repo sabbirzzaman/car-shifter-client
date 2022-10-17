@@ -55,7 +55,7 @@ const Header = () => {
                     <CustomLink to="/blog">Blog</CustomLink>
                     {user && <CustomLink to="/dashboard">Dashboard</CustomLink>}
 
-                    <div className="header-divider"></div>
+                    <div className={`header-divider ${user && 'hidden'}`}></div>
 
                     {!user && (
                         <button
@@ -75,7 +75,7 @@ const Header = () => {
                                 onClick={() => setProfileOpen(!profileOpen)}
                                 src={userAvatar}
                                 alt="User"
-                            ></img>
+                            />
                         </div>
 
                         {profileOpen && (
@@ -109,7 +109,7 @@ const Header = () => {
                                 onClick={() => setProfileOpen(!profileOpen)}
                                 src={userAvatar}
                                 alt="User"
-                            ></img>
+                            />
 
                             {profileOpen && (
                                 <div className="profile-nav">

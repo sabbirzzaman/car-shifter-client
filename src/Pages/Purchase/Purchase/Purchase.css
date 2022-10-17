@@ -18,8 +18,9 @@
 }
 
 .info {
-    background-color: #e53f3d;
+    background-color: #8a79f0;
     padding: 20px 30px;
+    margin-bottom: 10px;
 }
 
 .info:first-child {

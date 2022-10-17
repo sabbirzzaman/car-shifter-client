@@ -77,7 +77,7 @@ const MyPortfolio = () => {
                             <FontAwesomeIcon
                                 icon={faEnvelope}
                             ></FontAwesomeIcon>{' '}
-                            sztonmoy7@gmail.com
+                            sabbirzzaman7@gmail.com
                         </p>
                     </div>
                     <div>

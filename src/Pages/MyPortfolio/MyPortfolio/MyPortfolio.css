@@ -1,3 +1,7 @@
+.portfolio-section {
+    background-color: #f8f7fb;
+}
+
 .portfolio-section .container {
     padding: 80px 0;
 }
@@ -47,19 +51,28 @@
 }
 
 .my-skill div {
-    background-color: #f6f6f6;
+    background-color: #fff;
     padding: 20px 0;
     border-radius: 8px;
     cursor: pointer;
+    color: #ffffff;
     transition: 0.3s ease-in-out;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .my-skill div:hover {
-    background-color: #e53f3d;
-    color: #fff;
+    background-color: #8a79f0;
     padding: 20px 0;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.my-skill div h4 {
+    transition: .3s ease-in-out;
+}
+
+.my-skill div:hover h4 {
+    color: #ffffff;
 }
 
 .portfolio-projects {

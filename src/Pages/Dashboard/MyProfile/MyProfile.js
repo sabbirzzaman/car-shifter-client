@@ -48,7 +48,7 @@ const MyProfile = () => {
 
             <div className="my-profile">
                 <div className="profile-image">
-                    <img src={userAvatar} alt="User"></img>
+                    <img src={userAvatar} alt="User" />
                 </div>
 
                 <div className="profile-info">

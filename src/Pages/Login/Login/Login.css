@@ -18,7 +18,12 @@
 
 .form-title a {
     font-weight: 600;
-    color: #e53f3d;
+    color: #8a79f0;
+    transition: .3s ease-in-out;
+}
+
+.form-title a:hover {
+    color: #7765dd;
 }
 
 .form {
@@ -34,10 +39,11 @@
     border-bottom: 2px solid #f0f7ff;
     border-radius: 0;
     outline: none;
+    transition: .3s ease-in-out;
 }
 
 .field-group input:focus {
-    box-shadow: 0 1px 0 0 #e53f3d;
+    box-shadow: 0 1px 0 0 #8a79f0;
 }
 
 .field-group label {

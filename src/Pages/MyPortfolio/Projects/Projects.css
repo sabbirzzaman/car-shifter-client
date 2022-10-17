@@ -3,11 +3,12 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     padding: 30px;
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     align-items: center;
     margin-bottom: 20px;
     grid-auto-flow: dense;
     border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .project-item img {
@@ -18,12 +19,11 @@
 }
 
 .btn-link {
-    background-color: #e53f3d;
-    color: #fff;
+    background-color: #8a79f0;
+    color: #ffffff;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 14px;
-    font-family: 'Oxanium', cursive;
     padding: 13px 30px ;
     border-radius: 10px;
     display: inline-block;
@@ -32,7 +32,7 @@
 
 .btn-link:hover {
     background-color: #7765dd;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* Extra small devices (phones, 688px and down) */
