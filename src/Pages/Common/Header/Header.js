@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import User from './User';
 import userAvatar from '../../../images/user.png';
 import './Header.css';
 
