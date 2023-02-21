@@ -1,47 +1,47 @@
 .review-section {
-    background-color: #f8f7fb;
+  background-color: #f8f7fb;
 }
 
 .review-section .container {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
 .review-title h2 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .reviews {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
-    .review-section .container {
-        padding: 60px 0;
-    }
+  .review-section .container {
+    padding: 60px 0;
+  }
 
-    .review-title h2 {
-        margin-bottom: 20px;
-    }
+  .review-title h2 {
+    margin-bottom: 20px;
+  }
 
-    .reviews {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .reviews {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
-    .review-section .container {
-        padding: 40px 0;
-    }
+  .review-section .container {
+    padding: 40px 0;
+  }
 
-    .review-title h2 {
-        margin-bottom: 20px;
-    }
+  .review-title h2 {
+    margin-bottom: 20px;
+  }
 
-    .reviews {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .reviews {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

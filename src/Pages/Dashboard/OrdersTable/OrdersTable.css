@@ -1,80 +1,80 @@
 table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    vertical-align: middle;
-    border-collapse: collapse;
-    border-radius: 1em;
-    overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
 }
 
 th,
 td {
-    padding: 20px 15px;
+  padding: 20px 15px;
 }
 
 thead {
-    background-color: #8a79f0;
-    color: #fff;
-    text-transform: capitalize;
+  background-color: #8a79f0;
+  color: #fff;
+  text-transform: capitalize;
 }
 
 thead th {
-    width: 25%;
+  width: 25%;
 }
 
 tbody td:first-child,
 thead th:first-child {
-    text-align: left;
+  text-align: left;
 }
 
 tbody td {
-    height: 100px;
-    justify-content: center;
-    background-color: #f8f7fb;
-    border-bottom: 2px solid #fff;
+  height: 100px;
+  justify-content: center;
+  background-color: #f8f7fb;
+  border-bottom: 2px solid #fff;
 }
 
 tbody td:last-child {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .status,
 .action,
 .cancel {
-    padding: 8px 10px;
-    border: none;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    text-transform: capitalize;
-    font-weight: 600;
-    transition: 0.3s ease-in-out;
+  padding: 8px 10px;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
 }
 
 .status {
-    background-color: #8a79f0;
+  background-color: #8a79f0;
 }
 
 .action {
-    background-color: #8a79f0;
+  background-color: #8a79f0;
 }
 
 .cancel {
-    background-color: #e53f3d;
+  background-color: #e53f3d;
 }
 
 .status:hover,
 .action:hover,
 .cancel:hover {
-    background-color: #2a2e43;
-    color: #fff;
+  background-color: #2a2e43;
+  color: #fff;
 }
 
 .transaction-id {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }

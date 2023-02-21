@@ -1,4 +1,5 @@
-.review-table tbody td:first-child,.review-table thead th:first-child {
-    text-align: center;
-    width: 5%;
+.review-table tbody td:first-child,
+.review-table thead th:first-child {
+  text-align: center;
+  width: 5%;
 }

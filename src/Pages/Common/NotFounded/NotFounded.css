@@ -1,12 +1,12 @@
 .not-founded-section .container {
-    height: calc(100vh - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .not-founded-section h1 {
-    margin-bottom: 20px;
-    color: #e53f3d;
+  margin-bottom: 20px;
+  color: #e53f3d;
 }

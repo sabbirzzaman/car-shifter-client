@@ -1,66 +1,65 @@
 .hero-section {
-    height: calc(100vh - 80px);
-    background-color: #f8f7fb;
-    width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #f8f7fb;
+  width: 100%;
 }
 
 .hero-section .container {
-    height: 100%;
-    background-image: url('../../../images/hero.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 80%;
+  height: 100%;
+  background-image: url("../../../images/hero.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
 }
 
 .hero-section .container .overlay {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(248, 247, 251, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(248, 247, 251, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hero-content {
-    max-width: 800px;
+  max-width: 800px;
 }
 
 .hero-section .container p {
-    max-width: 500px;
-    margin: 0 auto;
-    margin-bottom: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
-    .hero-section .container {
-        max-width: 700px;
-    }
+  .hero-section .container {
+    max-width: 700px;
+  }
 }
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
-    .hero-section .container {
-        max-width: 300px;
-    }
+  .hero-section .container {
+    max-width: 300px;
+  }
 
-    .hero-section {
-        height: calc(85vh - 80px);
-        background-color: #f8f7fb;
-        width: 100%;
-    }
+  .hero-section {
+    height: calc(85vh - 80px);
+    background-color: #f8f7fb;
+    width: 100%;
+  }
 
-    .hero-section .container {
-        background-size: 110%;
-    }
+  .hero-section .container {
+    background-size: 110%;
+  }
 
-    .hero-section .container h1 {
-        margin-bottom: 10px;
-    }
+  .hero-section .container h1 {
+    margin-bottom: 10px;
+  }
 
-    .hero-section .container p {
-        font-size: 14px;
-    }
-
+  .hero-section .container p {
+    font-size: 14px;
+  }
 }

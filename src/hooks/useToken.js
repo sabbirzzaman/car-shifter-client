@@ -1,30 +1,31 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const useToken = (user) => {
-    const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
 
-    useEffect(() => {
-        const email = user?.user?.email;
-        const name = user?.user?.displayName;
+  useEffect(() => {
+    const email = user?.user?.email;
+    const name = user?.user?.displayName;
 
-        if (email) {
-            const user = { email, name };
+    if (email) {
+      const user = { email, name };
 
-            axios.put(`https://car-shifter.herokuapp.com/users/${email}`, user, {
-                    headers: {
-                        'content-type': 'application/json',
-                    },
-                })
-                .then((data) => {
-                    const accessToken = data.data.accessToken;
+      axios
+        .put(`https://white-rabbit-tutu.cyclic.app/users/${email}`, user, {
+          headers: {
+            "content-type": "application/json",
+          },
+        })
+        .then((data) => {
+          const accessToken = data.data.accessToken;
 
-                    localStorage.setItem('accessToken', accessToken);
-                    setToken(accessToken);
-                });
-        }
-    }, [user]);
-    return [token];
+          localStorage.setItem("accessToken", accessToken);
+          setToken(accessToken);
+        });
+    }
+  }, [user]);
+  return [token];
 };
 
 export default useToken;

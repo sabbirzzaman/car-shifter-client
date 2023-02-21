@@ -1,64 +1,64 @@
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import axios from 'axios';
-import React from 'react';
-import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
-import Loader from '../../Common/Loader/Loader';
-import CheckoutForm from '../CheckoutForm/CheckoutForm';
-import './Payment.css';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import axios from "axios";
+import React from "react";
+import { useQuery } from "react-query";
+import { useParams } from "react-router-dom";
+import Loader from "../../Common/Loader/Loader";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import "./Payment.css";
 
 // stripe promises
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLISH_KEY}`);
 
 const Payment = () => {
-    const { id } = useParams();
+  const { id } = useParams();
 
-    // get product data
-    const { data, isLoading } = useQuery('order', () =>
-        axios.get(`https://car-shifter.herokuapp.com/orders/${id}`)
-    );
+  // get product data
+  const { data, isLoading } = useQuery("order", () =>
+    axios.get(`https://white-rabbit-tutu.cyclic.app/orders/${id}`)
+  );
 
-    if (isLoading) {
-        return <Loader></Loader>;
-    }
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
 
-    const { productName, image, price, quantity } = data.data;
+  const { productName, image, price, quantity } = data.data;
 
-    const totalPrice = parseInt(price) * parseInt(quantity);
+  const totalPrice = parseInt(price) * parseInt(quantity);
 
-    return (
-        <section className="payment-section">
-            <div className="container">
-                <div className="purchase-item">
-                    <h3>{productName}</h3>
-                    <div className="purchase-image">
-                        <img src={image} alt={productName} />
-                    </div>
-                    <div className="purchase-info">
-                        <div className="info">
-                            <h5>Price</h5>
-                            <h3>${price}.00</h3>
-                        </div>
-                        <div className="info">
-                            <h5>Quantity</h5>
-                            <h3>{quantity} Pice</h3>
-                        </div>
-                        <div className="info">
-                            <h5>Total Price</h5>
-                            <h3>${totalPrice}.00</h3>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-container">
-                    <h3>Complete Payment</h3>
-                    <Elements stripe={stripePromise}>
-                        <CheckoutForm price={totalPrice} order={data.data} />
-                    </Elements>
-                </div>
+  return (
+    <section className="payment-section">
+      <div className="container">
+        <div className="purchase-item">
+          <h3>{productName}</h3>
+          <div className="purchase-image">
+            <img src={image} alt={productName} />
+          </div>
+          <div className="purchase-info">
+            <div className="info">
+              <h5>Price</h5>
+              <h3>${price}.00</h3>
             </div>
-        </section>
-    );
+            <div className="info">
+              <h5>Quantity</h5>
+              <h3>{quantity} Pice</h3>
+            </div>
+            <div className="info">
+              <h5>Total Price</h5>
+              <h3>${totalPrice}.00</h3>
+            </div>
+          </div>
+        </div>
+        <div className="form-container">
+          <h3>Complete Payment</h3>
+          <Elements stripe={stripePromise}>
+            <CheckoutForm price={totalPrice} order={data.data} />
+          </Elements>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Payment;

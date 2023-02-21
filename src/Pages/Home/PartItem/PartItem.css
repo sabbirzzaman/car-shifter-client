@@ -1,75 +1,74 @@
 .product-item {
-    position: relative;
-    background-color: #fff;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .product {
-    padding: 20px;
+  padding: 20px;
 }
 
 .stock,
 .details {
-    color: #7b7b7b;
+  color: #7b7b7b;
 }
 
 .product > *:not(:last-child) {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .product-item img {
-    width: 60%;
+  width: 60%;
 }
 
 .product-img {
-    text-align: center;
+  text-align: center;
 }
 
 .product-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-info div > *:not(:last-child) {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .purchase {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(-105%);
-    transition: 0.3s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-105%);
+  transition: 0.3s ease-in-out;
 }
 
 .product-item:hover .purchase {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 .purchase-btn {
-    background-color: transparent;
-    color: #fff;
-    display: flex;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 
 .purchase-btn svg {
-    transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-
 .purchase-btn:hover svg {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }

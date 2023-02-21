@@ -1,48 +1,50 @@
 .footer {
-    color: #fff;
+  color: #fff;
 }
 
 .footer-top {
-    background-color: #161616;
-    padding: 40px 0;
+  background-color: #161616;
+  padding: 40px 0;
 }
 
 .footer-top .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.column h3, .column h4, .col-2 a {
-    color: #fff;
+.column h3,
+.column h4,
+.col-2 a {
+  color: #fff;
 }
 
 .col-2 a:hover {
-    color: #7765dd;
+  color: #7765dd;
 }
 
 .col-3 p {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .footer-bottom {
-    background-color: #000;
-    padding: 30px 0;
-    text-align: center;
+  background-color: #000;
+  padding: 30px 0;
+  text-align: center;
 }
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
-    .footer-top .container {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 40px;
-    }
+  .footer-top .container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
 }

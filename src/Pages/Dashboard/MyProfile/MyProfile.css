@@ -1,37 +1,38 @@
 .profile-section h3 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .my-profile {
-    display: grid;
-    grid-template-columns: 20% 80%;
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
 
-.profile-info, .profile-image {
-    padding: 0px 20px;
+.profile-info,
+.profile-image {
+  padding: 0px 20px;
 }
 
 .profile-info h4 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Medium devices (landscape tablets, 689px and up) */
 @media only screen and (min-width: 689px) and (max-width: 992px) {
-    .my-profile {
-        margin-bottom: 20px;
-    }
+  .my-profile {
+    margin-bottom: 20px;
+  }
 }
 
 /* Extra small devices (phones, 688px and down) */
 @media only screen and (max-width: 688px) {
-    .my-profile {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        margin-bottom: 20px;
-    }
-    
-    .profile-image {
-        width: 50%;
-        margin-bottom: 20px;
-    }
+  .my-profile {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 20px;
+  }
+
+  .profile-image {
+    width: 50%;
+    margin-bottom: 20px;
+  }
 }

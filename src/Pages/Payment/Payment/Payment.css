@@ -1,9 +1,9 @@
 .payment-section .container {
-    padding: 80px 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .payment-section .form-container {
-    height: fit-content;
+  height: fit-content;
 }
